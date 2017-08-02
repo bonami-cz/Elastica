@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Query\Prefix;
 use Bonami\Elastica\Test\Base as BaseTest;

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Cluster;
+namespace Bonami\Elastica\Test\Cluster;
 
 use Bonami\Elastica\Cluster\Settings;
 use Bonami\Elastica\Document;

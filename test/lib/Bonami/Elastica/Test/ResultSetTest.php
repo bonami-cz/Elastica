@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Result;
@@ -24,7 +24,7 @@ class ResultSetTest extends BaseTest
 
         $resultSet = $type->search('elastica search');
 
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSet);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
         $this->assertEquals(3, $resultSet->getTotalHits());
         $this->assertGreaterThan(0, $resultSet->getMaxScore());
         $this->assertInternalType('array', $resultSet->getResults());
@@ -48,17 +48,17 @@ class ResultSetTest extends BaseTest
 
         $resultSet = $type->search('elastica search');
 
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSet);
-        $this->assertInstanceOf('Elastica\Result', $resultSet[0]);
-        $this->assertInstanceOf('Elastica\Result', $resultSet[1]);
-        $this->assertInstanceOf('Elastica\Result', $resultSet[2]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $resultSet[0]);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $resultSet[1]);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $resultSet[2]);
 
         $this->assertFalse(isset($resultSet[3]));
     }
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testInvalidOffsetCreation()
     {
@@ -77,7 +77,7 @@ class ResultSetTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testInvalidOffsetGet()
     {

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query\SimpleQueryString;
@@ -74,7 +74,7 @@ class SimpleQueryStringTest extends Base
         $query->setMinimumShouldMatch($expected['simple_query_string']['minimum_should_match']);
 
         $this->assertEquals($expected, $query->toArray());
-        $this->assertInstanceOf('Elastica\Query\SimpleQueryString', $query->setMinimumShouldMatch('75%'));
+        $this->assertInstanceOf('Bonami\Elastica\Query\SimpleQueryString', $query->setMinimumShouldMatch('75%'));
     }
 
     /**

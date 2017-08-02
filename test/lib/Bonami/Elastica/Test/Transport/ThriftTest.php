@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Document;
@@ -70,7 +70,7 @@ class ThriftTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\ConnectionException
+     * @expectedException \Bonami\Elastica\Exception\ConnectionException
      */
     public function testInvalidHostRequest()
     {
@@ -82,7 +82,7 @@ class ThriftTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\ResponseException
+     * @expectedException \Bonami\Elastica\Exception\ResponseException
      */
     public function testInvalidElasticRequest()
     {

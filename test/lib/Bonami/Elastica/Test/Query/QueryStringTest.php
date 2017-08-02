@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query\QueryString;
@@ -125,7 +125,7 @@ class QueryStringTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testSetQueryInvalid()
     {
@@ -152,7 +152,7 @@ class QueryStringTest extends BaseTest
         );
 
         $this->assertEquals($expected, $query->toArray());
-        $this->assertInstanceOf('Elastica\Query\QueryString', $query->setTimezone($timezone));
+        $this->assertInstanceOf('Bonami\Elastica\Query\QueryString', $query->setTimezone($timezone));
     }
 
     /**

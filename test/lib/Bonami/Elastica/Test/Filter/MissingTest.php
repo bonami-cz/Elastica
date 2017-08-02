@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\Missing;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -39,7 +39,7 @@ class MissingTest extends BaseTest
         $this->assertEquals('new_field_name', $filter->getParam('field'));
 
         $returnValue = $filter->setField('very_new_field_name');
-        $this->assertInstanceOf('Elastica\Filter\Missing', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Missing', $returnValue);
     }
 
     /**
@@ -56,7 +56,7 @@ class MissingTest extends BaseTest
         $this->assertFalse($filter->getParam('existence'));
 
         $returnValue = $filter->setExistence(true);
-        $this->assertInstanceOf('Elastica\Filter\Missing', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Missing', $returnValue);
     }
 
     /**
@@ -73,6 +73,6 @@ class MissingTest extends BaseTest
         $this->assertFalse($filter->getParam('null_value'));
 
         $returnValue = $filter->setNullValue(true);
-        $this->assertInstanceOf('Elastica\Filter\Missing', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Missing', $returnValue);
     }
 }

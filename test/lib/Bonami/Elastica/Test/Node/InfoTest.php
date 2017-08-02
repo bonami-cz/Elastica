@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Node;
+namespace Bonami\Elastica\Test\Node;
 
 use Bonami\Elastica\Node;
 use Bonami\Elastica\Node\Info as NodeInfo;

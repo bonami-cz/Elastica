@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\BoolOr;
@@ -13,10 +13,10 @@ class BoolOrTest extends BaseTest
      */
     public function testAddFilter()
     {
-        $filter = $this->getMockForAbstractClass('Elastica\Filter\AbstractFilter');
+        $filter = $this->getMockForAbstractClass('Bonami\Elastica\Filter\AbstractFilter');
         $orFilter = new BoolOr();
         $returnValue = $orFilter->addFilter($filter);
-        $this->assertInstanceOf('Elastica\Filter\BoolOr', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\BoolOr', $returnValue);
     }
 
     /**
@@ -80,9 +80,9 @@ class BoolOrTest extends BaseTest
 
         $index->refresh();
 
-        $boolOr = new \Elastica\Filter\BoolOr();
-        $boolOr->addFilter(new \Elastica\Filter\Term(array('categoryId' => '1')));
-        $boolOr->addFilter(new \Elastica\Filter\Term(array('categoryId' => '2')));
+        $boolOr = new \Bonami\Elastica\Filter\BoolOr();
+        $boolOr->addFilter(new \Bonami\Elastica\Filter\Term(array('categoryId' => '1')));
+        $boolOr->addFilter(new \Bonami\Elastica\Filter\Term(array('categoryId' => '2')));
 
         $resultSet = $type->search($boolOr);
         $this->assertEquals(2, $resultSet->count());

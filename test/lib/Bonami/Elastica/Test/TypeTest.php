@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Exception\NotFoundException;
@@ -331,7 +331,7 @@ class TypeTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\NotFoundException
+     * @expectedException \Bonami\Elastica\Exception\NotFoundException
      */
     public function testGetDocumentNotExist()
     {
@@ -347,7 +347,7 @@ class TypeTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\ResponseException
+     * @expectedException \Bonami\Elastica\Exception\ResponseException
      */
     public function testGetDocumentNotExistingIndex()
     {
@@ -464,7 +464,7 @@ class TypeTest extends BaseTest
     }
 
     /**
-     * Test to see if Elastica_Type::getDocument() is properly using
+     * Test to see if elastica_Type::getDocument() is properly using
      * the fields array when available instead of _source.
      *
      * @group functional
@@ -730,7 +730,7 @@ class TypeTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testUpdateDocumentWithoutId()
     {
@@ -839,7 +839,7 @@ class TypeTest extends BaseTest
         $this->assertTrue($document->hasId());
 
         $foundDoc = $type->getDocument($document->getId());
-        $this->assertInstanceOf('Elastica\Document', $foundDoc);
+        $this->assertInstanceOf('Bonami\Elastica\Document', $foundDoc);
         $this->assertEquals($document->getId(), $foundDoc->getId());
         $data = $foundDoc->getData();
         $this->assertArrayHasKey('name', $data);
@@ -848,7 +848,7 @@ class TypeTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\RuntimeException
+     * @expectedException \Bonami\Elastica\Exception\RuntimeException
      */
     public function testAddDocumentWithoutSerializer()
     {
@@ -895,7 +895,7 @@ class TypeTest extends BaseTest
         $index = $this->_getClient()->getIndex('foo');
         $type = $index->getType('user');
         $ret = $type->setSerializer('get_object_vars');
-        $this->assertInstanceOf('Elastica\Type', $ret);
+        $this->assertInstanceOf('Bonami\Elastica\Type', $ret);
     }
 
     /**

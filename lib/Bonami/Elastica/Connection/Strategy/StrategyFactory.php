@@ -13,9 +13,9 @@ class StrategyFactory
     /**
      * @param mixed|callable|string|StrategyInterface $strategyName
      *
-     * @throws \Elastica\Exception\InvalidException
+     * @throws \Bonami\Elastica\Exception\InvalidException
      *
-     * @return \Elastica\Connection\Strategy\StrategyInterface
+     * @return \Bonami\Elastica\Connection\Strategy\StrategyInterface
      */
     public static function create($strategyName)
     {
@@ -28,8 +28,8 @@ class StrategyFactory
         }
 
         if (is_string($strategyName)) {
-            $requiredInterface = '\\Elastica\\Connection\\Strategy\\StrategyInterface';
-            $predefinedStrategy = '\\Elastica\\Connection\\Strategy\\'.$strategyName;
+            $requiredInterface = '\\Bonami\\Elastica\\Connection\\Strategy\\StrategyInterface';
+            $predefinedStrategy = '\\Bonami\\Elastica\\Connection\\Strategy\\'.$strategyName;
 
             if (class_exists($predefinedStrategy) && class_implements($predefinedStrategy, $requiredInterface)) {
                 return new $predefinedStrategy();

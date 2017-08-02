@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Exception\NotImplementedException;
 use Bonami\Elastica\Filter\BoolFilter;

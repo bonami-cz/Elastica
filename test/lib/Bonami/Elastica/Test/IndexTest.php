@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Exception\ResponseException;
@@ -283,7 +283,7 @@ class IndexTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\ResponseException
+     * @expectedException \Bonami\Elastica\Exception\ResponseException
      */
     public function testAddRemoveAlias()
     {
@@ -620,7 +620,7 @@ class IndexTest extends BaseTest
      *
      * Tests if deleting an index that does not exist in Elasticsearch,
      * correctly returns a boolean true from the hasError() method of
-     * the \Elastica\Response object
+     * the \Bonami\Elastica\Response object
      *
      * @group functional
      */
@@ -636,7 +636,7 @@ class IndexTest extends BaseTest
             $response = $error->getResponse();
             $this->assertTrue($response->hasError());
             $request = $error->getRequest();
-            $this->assertInstanceOf('Elastica\Request', $request);
+            $this->assertInstanceOf('Bonami\Elastica\Request', $request);
         }
     }
 
@@ -716,7 +716,7 @@ class IndexTest extends BaseTest
     }
 
     /**
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      *
      * @group functional
      */
@@ -868,7 +868,7 @@ class IndexTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testThrowExceptionIfNotScalar()
     {

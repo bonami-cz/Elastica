@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Connection\Strategy;
+namespace Bonami\Elastica\Test\Connection\Strategy;
 
 use Bonami\Elastica\Connection\Strategy\StrategyFactory;
 use Bonami\Elastica\Test\Base;
@@ -21,7 +21,7 @@ class StrategyFactoryTest extends Base
 
         $strategy = StrategyFactory::create($callback);
 
-        $this->assertInstanceOf('Elastica\Connection\Strategy\CallbackStrategy', $strategy);
+        $this->assertInstanceOf('Bonami\Elastica\Connection\Strategy\CallbackStrategy', $strategy);
     }
 
     /**
@@ -33,7 +33,7 @@ class StrategyFactoryTest extends Base
 
         $strategy = StrategyFactory::create($strategyName);
 
-        $this->assertInstanceOf('Elastica\Connection\Strategy\Simple', $strategy);
+        $this->assertInstanceOf('Bonami\Elastica\Connection\Strategy\Simple', $strategy);
     }
 
     /**
@@ -51,7 +51,7 @@ class StrategyFactoryTest extends Base
      */
     public function testCreateByClassName()
     {
-        $strategyName = '\\Elastica\Test\Connection\Strategy\\EmptyStrategy';
+        $strategyName = '\Bonami\Elastica\Test\Connection\Strategy\EmptyStrategy';
 
         $strategy = StrategyFactory::create($strategyName);
 
@@ -76,9 +76,9 @@ class StrategyFactoryTest extends Base
     {
         // create collision
         if (!class_exists('Simple')) {
-            class_alias('Elastica\Util', 'Simple');
+            class_alias('Bonami\Elastica\Util', 'Simple');
         }
         $strategy = StrategyFactory::create('Simple');
-        $this->assertInstanceOf('Elastica\Connection\Strategy\Simple', $strategy);
+        $this->assertInstanceOf('Bonami\Elastica\Connection\Strategy\Simple', $strategy);
     }
 }

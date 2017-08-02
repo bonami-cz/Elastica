@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Transport\AbstractTransport;
@@ -33,7 +33,7 @@ class AbstractTransportTest extends \PHPUnit_Framework_TestCase
         $connection = new Connection();
         $params = array();
         $transport = AbstractTransport::create($transport, $connection, $params);
-        $this->assertInstanceOf('Elastica\Transport\AbstractTransport', $transport);
+        $this->assertInstanceOf('Bonami\Elastica\Transport\AbstractTransport', $transport);
         $this->assertSame($connection, $transport->getConnection());
     }
 
@@ -48,7 +48,7 @@ class AbstractTransportTest extends \PHPUnit_Framework_TestCase
     /**
      * @group unit
      * @dataProvider getInvalidDefinitions
-     * @expectedException Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage Invalid transport
      */
     public function testThrowsExecptionOnInvalidTransportDefinition($transport)

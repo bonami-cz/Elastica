@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Suggest;
+namespace Bonami\Elastica\Test\Suggest;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Index;
@@ -135,6 +135,6 @@ class CompletionTest extends BaseTest
 
         $this->assertEquals($fuzzy, $suggest->getParam('fuzzy'));
 
-        $this->assertInstanceOf('Elastica\\Suggest\\Completion', $suggest->setFuzzy($fuzzy));
+        $this->assertInstanceOf('Bonami\Elastica\\Suggest\\Completion', $suggest->setFuzzy($fuzzy));
     }
 }

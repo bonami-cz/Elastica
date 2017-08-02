@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Result;
@@ -33,7 +33,7 @@ class ResultTest extends BaseTest
 
         $result = $resultSet->current();
 
-        $this->assertInstanceOf('Elastica\Result', $result);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $result);
         $this->assertEquals($index->getName(), $result->getIndex());
         $this->assertEquals($typeName, $result->getType());
         $this->assertEquals($docId, $result->getId());
@@ -76,7 +76,7 @@ class ResultTest extends BaseTest
         $result = $resultSet->current();
 
         $this->assertEquals(array(), $result->getSource());
-        $this->assertInstanceOf('Elastica\Result', $result);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $result);
         $this->assertEquals($indexName, $result->getIndex());
         $this->assertEquals($typeName, $result->getType());
         $this->assertEquals($docId, $result->getId());

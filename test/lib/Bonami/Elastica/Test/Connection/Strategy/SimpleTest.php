@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Connection\Strategy;
+namespace Bonami\Elastica\Test\Connection\Strategy;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Exception\ConnectionException;
@@ -24,7 +24,7 @@ class SimpleTest extends Base
     {
         $client = $this->_getClient();
         $response = $client->request('/_aliases');
-        /* @var $response \Elastica\Response */
+        /* @var $response \Bonami\Elastica\Response */
 
         $this->_checkResponse($response);
 
@@ -33,7 +33,7 @@ class SimpleTest extends Base
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\ConnectionException
+     * @expectedException \Bonami\Elastica\Exception\ConnectionException
      */
     public function testFailConnection()
     {
@@ -103,7 +103,7 @@ class SimpleTest extends Base
     {
         $strategy = $client->getConnectionStrategy();
 
-        $this->assertInstanceOf('Elastica\Connection\Strategy\Simple', $strategy);
+        $this->assertInstanceOf('Bonami\Elastica\Connection\Strategy\Simple', $strategy);
     }
 
     protected function _checkResponse($response)

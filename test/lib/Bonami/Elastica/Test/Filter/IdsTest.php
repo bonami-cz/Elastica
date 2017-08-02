@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\Ids;
@@ -239,6 +239,6 @@ class IdsTest extends BaseTest
         $this->assertEquals(array('foo', $type->getName()), $filter->getParam('type'));
 
         $returnValue = $filter->addType('bar');
-        $this->assertInstanceOf('Elastica\Filter\Ids', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Ids', $returnValue);
     }
 }

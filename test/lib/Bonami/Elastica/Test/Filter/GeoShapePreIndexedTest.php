@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\AbstractGeoShape;
 use Bonami\Elastica\Filter\GeoShapePreIndexed;
@@ -20,7 +20,7 @@ class GeoShapePreIndexedTest extends BaseTest
         $otherType = $index->getType('other_type');
 
         // create mapping
-        $mapping = new \Elastica\Type\Mapping($type, array(
+        $mapping = new \Bonami\Elastica\Type\Mapping($type, array(
             'location' => array(
                 'type' => 'geo_shape',
             ),
@@ -28,7 +28,7 @@ class GeoShapePreIndexedTest extends BaseTest
         $type->setMapping($mapping);
 
         // create other type mapping
-        $otherMapping = new \Elastica\Type\Mapping($type, array(
+        $otherMapping = new \Bonami\Elastica\Type\Mapping($type, array(
             'location' => array(
                 'type' => 'geo_shape',
             ),
@@ -36,7 +36,7 @@ class GeoShapePreIndexedTest extends BaseTest
         $otherType->setMapping($otherMapping);
 
         // add type docs
-        $type->addDocument(new \Elastica\Document('1', array(
+        $type->addDocument(new \Bonami\Elastica\Document('1', array(
             'location' => array(
                 'type' => 'envelope',
                 'coordinates' => array(
@@ -47,7 +47,7 @@ class GeoShapePreIndexedTest extends BaseTest
         )));
 
         // add other type docs
-        $otherType->addDocument(new \Elastica\Document('2', array(
+        $otherType->addDocument(new \Bonami\Elastica\Document('2', array(
             'location' => array(
                 'type' => 'envelope',
                 'coordinates' => array(
@@ -97,6 +97,6 @@ class GeoShapePreIndexedTest extends BaseTest
         $gsp = new GeoShapePreIndexed('location', '1', 'type', 'indexName', 'location');
         $gsp->setRelation(AbstractGeoShape::RELATION_INTERSECT);
         $this->assertEquals(AbstractGeoShape::RELATION_INTERSECT, $gsp->getRelation());
-        $this->assertInstanceOf('Elastica\Filter\GeoShapePreIndexed', $gsp->setRelation(AbstractGeoShape::RELATION_INTERSECT));
+        $this->assertInstanceOf('Bonami\Elastica\Filter\GeoShapePreIndexed', $gsp->setRelation(AbstractGeoShape::RELATION_INTERSECT));
     }
 }

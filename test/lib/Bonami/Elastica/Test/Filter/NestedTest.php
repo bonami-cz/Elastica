@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\Nested;
@@ -122,6 +122,6 @@ class NestedTest extends BaseTest
         $this->assertFalse($filter->setJoin(false)->getParam('join'));
 
         $returnValue = $filter->setJoin(true);
-        $this->assertInstanceOf('Elastica\Filter\Nested', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Nested', $returnValue);
     }
 }

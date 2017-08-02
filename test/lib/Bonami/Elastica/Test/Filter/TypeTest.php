@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\Type;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -13,7 +13,7 @@ class TypeTest extends BaseTest
     {
         $typeFilter = new Type();
         $returnValue = $typeFilter->setType('type_name');
-        $this->assertInstanceOf('Elastica\Filter\Type', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Type', $returnValue);
     }
 
     /**

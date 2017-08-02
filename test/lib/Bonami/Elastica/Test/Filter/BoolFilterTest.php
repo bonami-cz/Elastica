@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\BoolFilter;
@@ -143,7 +143,7 @@ class BoolFilterTest extends BaseTest
 
         //count compare the id's
         $ids = array();
-        /** @var \Elastica\Result $result **/
+        /** @var \Bonami\Elastica\Result $result **/
         foreach ($results as $result) {
             $ids[] = $result->getId();
         }
@@ -154,7 +154,7 @@ class BoolFilterTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testAddMustInvalidException()
     {
@@ -164,7 +164,7 @@ class BoolFilterTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testAddMustNotInvalidException()
     {
@@ -174,7 +174,7 @@ class BoolFilterTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testAddShouldInvalidException()
     {
@@ -186,7 +186,7 @@ class BoolFilterTest extends BaseTest
      * Small unit test to check if also the old object name works.
      *
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testOldObject()
     {
@@ -194,7 +194,7 @@ class BoolFilterTest extends BaseTest
             self::markTestSkipped('These objects are not supported in PHP 7');
         }
 
-        $filter = new \Elastica\Filter\Bool();
+        $filter = new \Bonami\Elastica\Filter\Bool();
         $filter->addShould('fail!');
     }
 }

@@ -55,7 +55,7 @@ class ShutdownTest extends BaseTest
     /**
      * @group shutdown
      * @depends testNodeShutdown
-     * @expectedException \Elastica\Exception\Connection\HttpException
+     * @expectedException \Bonami\Elastica\Exception\Connection\HttpException
      */
     public function testClusterShutdown()
     {

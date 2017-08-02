@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Client;
 use Bonami\Elastica\IndexTemplate;
@@ -28,7 +28,7 @@ class IndexTemplateTest extends BaseTest
     }
 
     /**
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @group unit
      */
     public function testIncorrectInstantiate()
@@ -45,7 +45,7 @@ class IndexTemplateTest extends BaseTest
         $name = 'index_template1';
         $response = new Response('');
         /** @var \PHPUnit_Framework_MockObject_MockObject|Client $clientMock */
-        $clientMock = $this->getMock('\Elastica\Client', array('request'));
+        $clientMock = $this->getMock('Bonami\Elastica\Client', array('request'));
         $clientMock->expects($this->once())
             ->method('request')
             ->with('/_template/'.$name, Request::DELETE, array(), array())
@@ -63,7 +63,7 @@ class IndexTemplateTest extends BaseTest
         $response = new Response('');
         $name = 'index_template1';
         /** @var \PHPUnit_Framework_MockObject_MockObject|Client $clientMock */
-        $clientMock = $this->getMock('\Elastica\Client', array('request'));
+        $clientMock = $this->getMock('Bonami\Elastica\Client', array('request'));
         $clientMock->expects($this->once())
             ->method('request')
             ->with('/_template/'.$name, Request::PUT, $args, array())
@@ -81,7 +81,7 @@ class IndexTemplateTest extends BaseTest
         $response = new Response('');
         $response->setTransferInfo(array('http_code' => 200));
         /** @var \PHPUnit_Framework_MockObject_MockObject|Client $clientMock */
-        $clientMock = $this->getMock('\Elastica\Client', array('request'));
+        $clientMock = $this->getMock('Bonami\Elastica\Client', array('request'));
         $clientMock->expects($this->once())
             ->method('request')
             ->with('/_template/'.$name, Request::HEAD, array(), array())

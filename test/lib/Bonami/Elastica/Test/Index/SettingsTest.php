@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Index;
+namespace Bonami\Elastica\Test\Index;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Exception\ResponseException;
@@ -168,7 +168,7 @@ class SettingsTest extends BaseTest
 
         $response = $settings->setMergePolicy('merge_factor', 15);
         $this->assertEquals(15, $settings->getMergePolicy('merge_factor'));
-        $this->assertInstanceOf('Elastica\Response', $response);
+        $this->assertInstanceOf('Bonami\Elastica\Response', $response);
         $this->assertTrue($response->isOk());
 
         $settings->setMergePolicy('merge_factor', 10);
@@ -198,7 +198,7 @@ class SettingsTest extends BaseTest
 
         $response = $settings->setMergePolicy('merge_factor', 15);
         $this->assertEquals(15, $settings->getMergePolicy('merge_factor'));
-        $this->assertInstanceOf('Elastica\Response', $response);
+        $this->assertInstanceOf('Bonami\Elastica\Response', $response);
         $this->assertTrue($response->isOk());
 
         $index->delete();

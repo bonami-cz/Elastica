@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Facet\DateHistogram;
@@ -18,8 +18,8 @@ class ResponseTest extends BaseTest
     public function testClassHierarchy()
     {
         $facet = new DateHistogram('dateHist1');
-        $this->assertInstanceOf('Elastica\Facet\Histogram', $facet);
-        $this->assertInstanceOf('Elastica\Facet\AbstractFacet', $facet);
+        $this->assertInstanceOf('Bonami\Elastica\Facet\Histogram', $facet);
+        $this->assertInstanceOf('Bonami\Elastica\Facet\AbstractFacet', $facet);
         unset($facet);
     }
 

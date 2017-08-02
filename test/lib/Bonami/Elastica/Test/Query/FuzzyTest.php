@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query\Fuzzy;
@@ -81,15 +81,15 @@ class FuzzyTest extends BaseTest
      */
     public function testBadArguments()
     {
-        $this->setExpectedException('Elastica\Exception\InvalidException');
+        $this->setExpectedException('Bonami\Elastica\Exception\InvalidException');
         $query = new Fuzzy();
         $query->addField('name', array(array('value' => 'Baden')));
 
-        $this->setExpectedException('Elastica\Exception\InvalidException');
+        $this->setExpectedException('Bonami\Elastica\Exception\InvalidException');
         $query = new Fuzzy();
         $query->setField('name', array());
 
-        $this->setExpectedException('Elastica\Exception\InvalidException');
+        $this->setExpectedException('Bonami\Elastica\Exception\InvalidException');
         $query = new Fuzzy();
         $query->setField('name', 'value');
         $query->setField('name1', 'value1');
@@ -117,10 +117,10 @@ class FuzzyTest extends BaseTest
         $fuzzyQuery = new Fuzzy();
         $fuzzyQuery->setField($field, 'Baden');
 
-        $facet = new \Elastica\Facet\Terms('test');
+        $facet = new \Bonami\Elastica\Facet\Terms('test');
         $facet->setField('name');
 
-        $query = new \Elastica\Query($fuzzyQuery);
+        $query = new \Bonami\Elastica\Query($fuzzyQuery);
         $query->addFacet($facet);
 
         $resultSet = $index->search($query);

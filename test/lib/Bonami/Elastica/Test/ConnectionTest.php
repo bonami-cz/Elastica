@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Request;
@@ -16,7 +16,7 @@ class ConnectionTest extends BaseTest
         $this->assertEquals(Connection::DEFAULT_HOST, $connection->getHost());
         $this->assertEquals(Connection::DEFAULT_PORT, $connection->getPort());
         $this->assertEquals(Connection::DEFAULT_TRANSPORT, $connection->getTransport());
-        $this->assertInstanceOf('Elastica\Transport\AbstractTransport', $connection->getTransportObject());
+        $this->assertInstanceOf('Bonami\Elastica\Transport\AbstractTransport', $connection->getTransportObject());
         $this->assertEquals(Connection::TIMEOUT, $connection->getTimeout());
         $this->assertEquals(Connection::CONNECT_TIMEOUT, $connection->getConnectTimeout());
         $this->assertEquals(array(), $connection->getConfig());
@@ -38,7 +38,7 @@ class ConnectionTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\ConnectionException
+     * @expectedException \Bonami\Elastica\Exception\ConnectionException
      */
     public function testInvalidConnection()
     {
@@ -57,21 +57,21 @@ class ConnectionTest extends BaseTest
     public function testCreate()
     {
         $connection = Connection::create();
-        $this->assertInstanceOf('Elastica\Connection', $connection);
+        $this->assertInstanceOf('Bonami\Elastica\Connection', $connection);
 
         $connection = Connection::create(array());
-        $this->assertInstanceOf('Elastica\Connection', $connection);
+        $this->assertInstanceOf('Bonami\Elastica\Connection', $connection);
 
         $port = 9999;
         $connection = Connection::create(array('port' => $port));
-        $this->assertInstanceOf('Elastica\Connection', $connection);
+        $this->assertInstanceOf('Bonami\Elastica\Connection', $connection);
         $this->assertEquals($port, $connection->getPort());
     }
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testCreateInvalid()
     {
@@ -95,12 +95,12 @@ class ConnectionTest extends BaseTest
     public function testGetConfigWithArrayUsedForTransport()
     {
         $connection = new Connection(array('transport' => array('type' => 'Http')));
-        $this->assertInstanceOf('Elastica\Transport\Http', $connection->getTransportObject());
+        $this->assertInstanceOf('Bonami\Elastica\Transport\Http', $connection->getTransportObject());
     }
 
     /**
      * @group unit
-     * @expectedException Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage Invalid transport
      */
     public function testGetInvalidConfigWithArrayUsedForTransport()
@@ -111,7 +111,7 @@ class ConnectionTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testGetConfigInvalidValue()
     {
@@ -136,7 +136,7 @@ class ConnectionTest extends BaseTest
      */
     public function testCompressionDefaultWithClient()
     {
-        $client = new \Elastica\Client();
+        $client = new \Bonami\Elastica\Client();
         $connection = $client->getConnection();
         $this->assertFalse($connection->hasCompression());
     }
@@ -146,7 +146,7 @@ class ConnectionTest extends BaseTest
      */
     public function testCompressionEnabledWithClient()
     {
-        $client = new \Elastica\Client(array('connections' => array(array('compression' => true))));
+        $client = new \Bonami\Elastica\Client(array('connections' => array(array('compression' => true))));
         $connection = $client->getConnection();
 
         $this->assertTrue($connection->hasCompression());

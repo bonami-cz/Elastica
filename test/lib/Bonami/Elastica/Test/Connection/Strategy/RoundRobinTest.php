@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Connection\Strategy;
+namespace Bonami\Elastica\Test\Connection\Strategy;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Connection\Strategy\RoundRobin;
@@ -47,7 +47,7 @@ class RoundRobinTest extends Base
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\ConnectionException
+     * @expectedException \Bonami\Elastica\Exception\ConnectionException
      */
     public function testFailConnection()
     {
@@ -118,7 +118,7 @@ class RoundRobinTest extends Base
     {
         $strategy = $client->getConnectionStrategy();
 
-        $this->assertInstanceOf('Elastica\Connection\Strategy\RoundRobin', $strategy);
+        $this->assertInstanceOf('Bonami\Elastica\Connection\Strategy\RoundRobin', $strategy);
     }
 
     protected function _checkResponse($response)

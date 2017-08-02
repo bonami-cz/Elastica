@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query;
@@ -56,7 +56,7 @@ class MemcacheTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException Elastica\Exception\NotFoundException
+     * @expectedException \Bonami\Elastica\Exception\NotFoundException
      */
     public function testDeleteDocument()
     {
@@ -136,7 +136,7 @@ class MemcacheTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage is not supported in memcache transport
      */
     public function testHeadRequest()
@@ -148,7 +148,7 @@ class MemcacheTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage is not supported in memcache transport
      */
     public function testInvalidRequest()
@@ -160,7 +160,7 @@ class MemcacheTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException Elastica\Exception\Connection\MemcacheException
+     * @expectedException \Bonami\Elastica\Exception\Connection\MemcacheException
      * @expectedExceptionMessage is too long
      */
     public function testRequestWithLongPath()

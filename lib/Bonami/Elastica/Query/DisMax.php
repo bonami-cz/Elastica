@@ -15,16 +15,16 @@ class DisMax extends AbstractQuery
     /**
      * Adds a query to the current object.
      *
-     * @param \Elastica\Query\AbstractQuery|array $args Query
+     * @param \Bonami\Elastica\Query\AbstractQuery|array $args Query
      *
-     * @throws \Elastica\Exception\InvalidException If not valid query
+     * @throws \Bonami\Elastica\Exception\InvalidException If not valid query
      *
      * @return $this
      */
     public function addQuery($args)
     {
         if (!is_array($args) && !($args instanceof AbstractQuery)) {
-            throw new InvalidException('Invalid parameter. Has to be array or instance of Elastica\Query\AbstractQuery');
+            throw new InvalidException('Invalid parameter. Has to be array or instance of \Bonami\Elastica\Query\AbstractQuery');
         }
 
         return $this->addParam('queries', $args);

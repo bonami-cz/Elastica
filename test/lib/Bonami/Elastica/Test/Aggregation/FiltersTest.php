@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Aggregation;
+namespace Bonami\Elastica\Test\Aggregation;
 
 use Bonami\Elastica\Aggregation\Avg;
 use Bonami\Elastica\Aggregation\Filter;
@@ -68,7 +68,7 @@ class FiltersTest extends BaseAggregationTest
 
     /**
      * @group unit
-     * @expectedException Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage Name must be a string
      */
     public function testWrongName()
@@ -79,7 +79,7 @@ class FiltersTest extends BaseAggregationTest
 
     /**
      * @group unit
-     * @expectedException Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage Mix named and anonymous keys are not allowed
      */
     public function testMixNamedAndAnonymousFilters()
@@ -91,7 +91,7 @@ class FiltersTest extends BaseAggregationTest
 
     /**
      * @group unit
-     * @expectedException Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage Mix named and anonymous keys are not allowed
      */
     public function testMixAnonymousAndNamedFilters()

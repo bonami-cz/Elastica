@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 	php5-xsl
 	# XSL and Graphviz for PhpDocumentor
 	
-RUN docker-php-ext-install sockets
+RUN docker-php-ext-install sockets memcache
 	
 RUN rm -r /var/lib/apt/lists/*
 	

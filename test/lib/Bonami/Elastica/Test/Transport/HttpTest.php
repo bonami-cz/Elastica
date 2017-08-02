@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query;
@@ -83,7 +83,7 @@ class HttpTest extends BaseTest
 
         $id = 1;
         $data = array('id' => $id, 'name' => 'Item 1');
-        $doc = new \Elastica\Document($id, $data);
+        $doc = new \Bonami\Elastica\Document($id, $data);
 
         $type->addDocument($doc);
 
@@ -118,7 +118,7 @@ class HttpTest extends BaseTest
             Послушай: далеко, далеко, на озере Чад /
             Изысканный бродит жираф.');
 
-        $doc = new \Elastica\Document($id, $data);
+        $doc = new \Bonami\Elastica\Document($id, $data);
 
         $type->addDocument($doc);
 

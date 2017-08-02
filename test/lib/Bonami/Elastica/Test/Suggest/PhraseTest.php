@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Suggest;
+namespace Bonami\Elastica\Test\Suggest;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Index;

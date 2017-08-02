@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Request;
@@ -27,7 +27,7 @@ class RequestTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testInvalidConnection()
     {
@@ -48,7 +48,7 @@ class RequestTest extends BaseTest
 
         $response = $request->send();
 
-        $this->assertInstanceOf('Elastica\Response', $response);
+        $this->assertInstanceOf('Bonami\Elastica\Response', $response);
     }
 
     /**

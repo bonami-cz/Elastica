@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Exception;
+namespace Bonami\Elastica\Test\Exception;
 
 class BulkExceptionTest extends AbstractExceptionTest
 {

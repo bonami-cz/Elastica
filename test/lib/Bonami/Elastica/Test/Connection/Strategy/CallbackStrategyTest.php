@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Connection\Strategy;
+namespace Bonami\Elastica\Test\Connection\Strategy;
 
 use Bonami\Elastica\Connection\Strategy\CallbackStrategy;
 use Bonami\Elastica\Test\Base;
@@ -42,11 +42,11 @@ class CallbackStrategyTest extends Base
         $this->assertTrue($isValid);
 
         // static method as string
-        $isValid = CallbackStrategy::isValid('Elastica\Test\Connection\Strategy\CallbackStrategyTestHelper::getFirstConnectionStatic');
+        $isValid = CallbackStrategy::isValid('Bonami\Elastica\Test\Connection\Strategy\CallbackStrategyTestHelper::getFirstConnectionStatic');
         $this->assertTrue($isValid);
 
         // static method as array
-        $isValid = CallbackStrategy::isValid(array('Elastica\Test\Connection\Strategy\CallbackStrategyTestHelper', 'getFirstConnectionStatic'));
+        $isValid = CallbackStrategy::isValid(array('Bonami\Elastica\Test\Connection\Strategy\CallbackStrategyTestHelper', 'getFirstConnectionStatic'));
         $this->assertTrue($isValid);
 
         // object method
@@ -92,6 +92,6 @@ class CallbackStrategyTest extends Base
 
         $strategy = $client->getConnectionStrategy();
 
-        $this->assertInstanceOf('Elastica\Connection\Strategy\CallbackStrategy', $strategy);
+        $this->assertInstanceOf('Bonami\Elastica\Connection\Strategy\CallbackStrategy', $strategy);
     }
 }

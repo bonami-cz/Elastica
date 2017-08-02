@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\QueryBuilder;
+namespace Bonami\Elastica\Test\QueryBuilder;
 
 use Bonami\Elastica\QueryBuilder\DSL;
 use Bonami\Elastica\QueryBuilder\Version;

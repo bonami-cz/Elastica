@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Cluster\Health;
+namespace Bonami\Elastica\Test\Cluster\Health;
 
 use Bonami\Elastica\Cluster\Health\Index as HealthIndex;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -7,7 +7,7 @@ use Bonami\Elastica\Test\Base as BaseTest;
 class IndexTest extends BaseTest
 {
     /**
-     * @var \Elastica\Cluster\Health\Index
+     * @var \Bonami\Elastica\Cluster\Health\Index
      */
     protected $_index;
 
@@ -138,7 +138,7 @@ class IndexTest extends BaseTest
         $this->assertEquals(3, count($shards));
 
         foreach ($shards as $shard) {
-            $this->assertInstanceOf('Elastica\Cluster\Health\Shard', $shard);
+            $this->assertInstanceOf('Bonami\Elastica\Cluster\Health\Shard', $shard);
         }
     }
 }

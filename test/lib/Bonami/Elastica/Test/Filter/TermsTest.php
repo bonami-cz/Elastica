@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\Terms;
@@ -68,7 +68,7 @@ class TermsTest extends BaseTest
         $this->assertEquals('bool', $filter->getParam('execution'));
 
         $returnValue = $filter->setExecution('bool');
-        $this->assertInstanceOf('Elastica\Filter\Terms', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Terms', $returnValue);
     }
 
     /**
@@ -85,7 +85,7 @@ class TermsTest extends BaseTest
         $this->assertEquals($expected, $filter->toArray());
 
         $returnValue = $filter->setTerms($field, $terms);
-        $this->assertInstanceOf('Elastica\Filter\Terms', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Terms', $returnValue);
     }
 
     /**
@@ -100,7 +100,7 @@ class TermsTest extends BaseTest
         $this->assertEquals($expected, $filter->toArray());
 
         $returnValue = $filter->addTerm('cyan');
-        $this->assertInstanceOf('Elastica\Filter\Terms', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Terms', $returnValue);
     }
 
     /**
@@ -119,7 +119,7 @@ class TermsTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testToArrayInvalidException()
     {

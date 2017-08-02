@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Client;
 use Bonami\Elastica\Connection;
@@ -66,7 +66,7 @@ class Base extends \PHPUnit_Framework_TestCase
      * @param bool   $delete Delete index if it exists
      * @param int    $shards Number of shards to create
      *
-     * @return \Elastica\Index
+     * @return \Bonami\Elastica\Index
      */
     protected function _createIndex($name = null, $delete = true, $shards = 1)
     {

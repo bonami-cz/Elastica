@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Aggregation;
+namespace Bonami\Elastica\Test\Aggregation;
 
 use Bonami\Elastica\Aggregation\DateHistogram;
 use Bonami\Elastica\Document;
@@ -61,7 +61,7 @@ class DateHistogramTest extends BaseAggregationTest
 
         $this->assertEquals($expected, $agg->toArray());
 
-        $this->assertInstanceOf('Elastica\Aggregation\DateHistogram', $agg->setOffset('3m'));
+        $this->assertInstanceOf('Bonami\Elastica\Aggregation\DateHistogram', $agg->setOffset('3m'));
     }
 
     /**
@@ -100,6 +100,6 @@ class DateHistogramTest extends BaseAggregationTest
 
         $this->assertEquals($expected, $agg->toArray());
 
-        $this->assertInstanceOf('Elastica\Aggregation\DateHistogram', $agg->setTimezone('-02:30'));
+        $this->assertInstanceOf('Bonami\Elastica\Aggregation\DateHistogram', $agg->setTimezone('-02:30'));
     }
 }

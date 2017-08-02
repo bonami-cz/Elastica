@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Bulk;
+namespace Bonami\Elastica\Test\Bulk;
 
 use Bonami\Elastica\Bulk\Action;
 use Bonami\Elastica\Index;

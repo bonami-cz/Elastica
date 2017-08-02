@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Test\Base as BaseTest;
 
@@ -49,7 +49,7 @@ class AbstractTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testSetCacheKeyEmptyKey()
     {
@@ -76,6 +76,6 @@ class AbstractTest extends BaseTest
 
     private function getStub()
     {
-        return $this->getMockForAbstractClass('Elastica\Filter\AbstractFilter');
+        return $this->getMockForAbstractClass('Bonami\Elastica\Filter\AbstractFilter');
     }
 }

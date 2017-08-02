@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Index;
@@ -22,7 +22,7 @@ class TransportBenchmarkTest extends BaseTest
     /**
      * @param array $config
      *
-     * @return \Elastica\Type
+     * @return \Bonami\Elastica\Type
      */
     protected function getType(array $config)
     {
@@ -76,8 +76,8 @@ class TransportBenchmarkTest extends BaseTest
         for ($i = 0; $i < $this->_max; ++$i) {
             $test = rand(1, $this->_max);
             $query = new Query();
-            $query->setQuery(new \Elastica\Query\MatchAll());
-            $query->setPostFilter(new \Elastica\Filter\Term(array('test' => $test)));
+            $query->setQuery(new \Bonami\Elastica\Query\MatchAll());
+            $query->setPostFilter(new \Bonami\Elastica\Filter\Term(array('test' => $test)));
             $result = $type->search($query);
             $times[] = $result->getResponse()->getQueryTime();
         }
@@ -125,7 +125,7 @@ class TransportBenchmarkTest extends BaseTest
         $type = $index->getType('mappingTest');
 
         // Define mapping
-        $mapping = new \Elastica\Type\Mapping();
+        $mapping = new \Bonami\Elastica\Type\Mapping();
         $mapping->setParam('_boost', array('name' => '_boost', 'null_value' => 1.0));
         $mapping->setProperties(array(
             'id' => array('type' => 'integer', 'include_in_all' => false),
@@ -147,7 +147,7 @@ class TransportBenchmarkTest extends BaseTest
 
         $times = array();
         for ($i = 0; $i < $this->_max; ++$i) {
-            $response = $type->request('_mapping', \Elastica\Request::GET);
+            $response = $type->request('_mapping', \Bonami\Elastica\Request::GET);
             $times[] = $response->getQueryTime();
         }
         self::logResults('get mapping', $transport, $times);
