@@ -14,7 +14,7 @@ class SettingsTest extends BaseTest
      */
     public function testGet()
     {
-        $indexName = 'Bonami\Elasticatest';
+        $indexName = 'elasticatest';
 
         $client = $this->_getClient();
         $index = $client->getIndex($indexName);
@@ -35,8 +35,8 @@ class SettingsTest extends BaseTest
      */
     public function testGetWithAlias()
     {
-        $indexName = 'Bonami\Elasticatest';
-        $aliasName = 'Bonami\Elasticatest_alias';
+        $indexName = 'elasticatest';
+        $aliasName = 'elasticatest_alias';
 
         $client = $this->_getClient();
         $index = $client->getIndex($indexName);

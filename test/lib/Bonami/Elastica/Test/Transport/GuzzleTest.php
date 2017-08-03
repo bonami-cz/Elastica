@@ -139,7 +139,7 @@ class GuzzleTest extends BaseTest
     public function testBodyReuse()
     {
         $client = $this->_getClient(array('transport' => 'Guzzle', 'persistent' => false));
-        $index = $client->getIndex('Bonami\Elastica_body_reuse_test');
+        $index = $client->getIndex('elastica_body_reuse_test');
         $index->create(array(), true);
         $this->_waitForAllocation($index);
 

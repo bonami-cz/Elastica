@@ -22,7 +22,7 @@ class ResultSetTest extends BaseTest
         ));
         $index->refresh();
 
-        $resultSet = $type->search('Bonami\Elastica search');
+        $resultSet = $type->search('Elastica search');
 
         $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
         $this->assertEquals(3, $resultSet->getTotalHits());
@@ -46,7 +46,7 @@ class ResultSetTest extends BaseTest
         ));
         $index->refresh();
 
-        $resultSet = $type->search('Bonami\Elastica search');
+        $resultSet = $type->search('Elastica search');
 
         $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
         $this->assertInstanceOf('Bonami\Elastica\Result', $resultSet[0]);

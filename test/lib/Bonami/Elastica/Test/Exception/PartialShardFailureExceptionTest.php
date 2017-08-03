@@ -15,7 +15,7 @@ class PartialShardFailureExceptionTest extends AbstractExceptionTest
     {
         $this->_checkScriptInlineSetting();
         $client = $this->_getClient();
-        $index = $client->getIndex('Bonami\Elastica_partial_failure');
+        $index = $client->getIndex('elastica_partial_failure');
         $index->create(array(
             'index' => array(
                 'number_of_shards' => 5,

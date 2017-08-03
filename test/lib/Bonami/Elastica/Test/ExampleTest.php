@@ -32,7 +32,7 @@ class ExampleTest extends BaseTest
     {
         // Creates a new index 'xodoa' and a type 'user' inside this index
         $client = $this->_getClient();
-        $index = $client->getIndex('Bonami\Elastica_test');
+        $index = $client->getIndex('elastica_test');
         $index->create(array(), true);
 
         $type = $index->getType('user');

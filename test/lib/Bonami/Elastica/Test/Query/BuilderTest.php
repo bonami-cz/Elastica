@@ -8,8 +8,8 @@ class BuilderTest extends BaseTest
 {
     /**
      * @group unit
-     * @covers \Elastica\Query\Builder::factory
-     * @covers \Elastica\Query\Builder::__construct
+     * @covers \Bonami\Elastica\Query\Builder::factory
+     * @covers \Bonami\Elastica\Query\Builder::__construct
      */
     public function testFactory()
     {
@@ -58,30 +58,30 @@ class BuilderTest extends BaseTest
     /**
      * @group unit
      * @dataProvider getQueryData
-     * @covers \Elastica\Query\Builder::__toString
-     * @covers \Elastica\Query\Builder::allowLeadingWildcard
-     * @covers \Elastica\Query\Builder::analyzeWildcard
-     * @covers \Elastica\Query\Builder::analyzer
-     * @covers \Elastica\Query\Builder::autoGeneratePhraseQueries
-     * @covers \Elastica\Query\Builder::boost
-     * @covers \Elastica\Query\Builder::defaultField
-     * @covers \Elastica\Query\Builder::defaultOperator
-     * @covers \Elastica\Query\Builder::enablePositionIncrements
-     * @covers \Elastica\Query\Builder::explain
-     * @covers \Elastica\Query\Builder::from
-     * @covers \Elastica\Query\Builder::fuzzyMinSim
-     * @covers \Elastica\Query\Builder::fuzzyPrefixLength
-     * @covers \Elastica\Query\Builder::gt
-     * @covers \Elastica\Query\Builder::gte
-     * @covers \Elastica\Query\Builder::lowercaseExpandedTerms
-     * @covers \Elastica\Query\Builder::lt
-     * @covers \Elastica\Query\Builder::lte
-     * @covers \Elastica\Query\Builder::minimumNumberShouldMatch
-     * @covers \Elastica\Query\Builder::phraseSlop
-     * @covers \Elastica\Query\Builder::size
-     * @covers \Elastica\Query\Builder::tieBreakerMultiplier
-     * @covers \Elastica\Query\Builder::matchAll
-     * @covers \Elastica\Query\Builder::fields
+     * @covers \Bonami\Elastica\Query\Builder::__toString
+     * @covers \Bonami\Elastica\Query\Builder::allowLeadingWildcard
+     * @covers \Bonami\Elastica\Query\Builder::analyzeWildcard
+     * @covers \Bonami\Elastica\Query\Builder::analyzer
+     * @covers \Bonami\Elastica\Query\Builder::autoGeneratePhraseQueries
+     * @covers \Bonami\Elastica\Query\Builder::boost
+     * @covers \Bonami\Elastica\Query\Builder::defaultField
+     * @covers \Bonami\Elastica\Query\Builder::defaultOperator
+     * @covers \Bonami\Elastica\Query\Builder::enablePositionIncrements
+     * @covers \Bonami\Elastica\Query\Builder::explain
+     * @covers \Bonami\Elastica\Query\Builder::from
+     * @covers \Bonami\Elastica\Query\Builder::fuzzyMinSim
+     * @covers \Bonami\Elastica\Query\Builder::fuzzyPrefixLength
+     * @covers \Bonami\Elastica\Query\Builder::gt
+     * @covers \Bonami\Elastica\Query\Builder::gte
+     * @covers \Bonami\Elastica\Query\Builder::lowercaseExpandedTerms
+     * @covers \Bonami\Elastica\Query\Builder::lt
+     * @covers \Bonami\Elastica\Query\Builder::lte
+     * @covers \Bonami\Elastica\Query\Builder::minimumNumberShouldMatch
+     * @covers \Bonami\Elastica\Query\Builder::phraseSlop
+     * @covers \Bonami\Elastica\Query\Builder::size
+     * @covers \Bonami\Elastica\Query\Builder::tieBreakerMultiplier
+     * @covers \Bonami\Elastica\Query\Builder::matchAll
+     * @covers \Bonami\Elastica\Query\Builder::fields
      */
     public function testAllowLeadingWildcard($method, $argument, $result)
     {
@@ -116,42 +116,42 @@ class BuilderTest extends BaseTest
     /**
      * @group unit
      * @dataProvider getQueryTypes
-     * @covers \Elastica\Query\Builder::fieldClose
-     * @covers \Elastica\Query\Builder::close
-     * @covers \Elastica\Query\Builder::bool
-     * @covers \Elastica\Query\Builder::boolClose
-     * @covers \Elastica\Query\Builder::constantScore
-     * @covers \Elastica\Query\Builder::constantScoreClose
-     * @covers \Elastica\Query\Builder::disMax
-     * @covers \Elastica\Query\Builder::disMaxClose
-     * @covers \Elastica\Query\Builder::facets
-     * @covers \Elastica\Query\Builder::facetsClose
-     * @covers \Elastica\Query\Builder::filter
-     * @covers \Elastica\Query\Builder::filterClose
-     * @covers \Elastica\Query\Builder::filteredQuery
-     * @covers \Elastica\Query\Builder::filteredQueryClose
-     * @covers \Elastica\Query\Builder::must
-     * @covers \Elastica\Query\Builder::mustClose
-     * @covers \Elastica\Query\Builder::mustNot
-     * @covers \Elastica\Query\Builder::mustNotClose
-     * @covers \Elastica\Query\Builder::prefix
-     * @covers \Elastica\Query\Builder::prefixClose
-     * @covers \Elastica\Query\Builder::query
-     * @covers \Elastica\Query\Builder::queryClose
-     * @covers \Elastica\Query\Builder::queryString
-     * @covers \Elastica\Query\Builder::queryStringClose
-     * @covers \Elastica\Query\Builder::range
-     * @covers \Elastica\Query\Builder::rangeClose
-     * @covers \Elastica\Query\Builder::should
-     * @covers \Elastica\Query\Builder::shouldClose
-     * @covers \Elastica\Query\Builder::sort
-     * @covers \Elastica\Query\Builder::sortClose
-     * @covers \Elastica\Query\Builder::term
-     * @covers \Elastica\Query\Builder::termClose
-     * @covers \Elastica\Query\Builder::textPhrase
-     * @covers \Elastica\Query\Builder::textPhraseClose
-     * @covers \Elastica\Query\Builder::wildcard
-     * @covers \Elastica\Query\Builder::wildcardClose
+     * @covers \Bonami\Elastica\Query\Builder::fieldClose
+     * @covers \Bonami\Elastica\Query\Builder::close
+     * @covers \Bonami\Elastica\Query\Builder::bool
+     * @covers \Bonami\Elastica\Query\Builder::boolClose
+     * @covers \Bonami\Elastica\Query\Builder::constantScore
+     * @covers \Bonami\Elastica\Query\Builder::constantScoreClose
+     * @covers \Bonami\Elastica\Query\Builder::disMax
+     * @covers \Bonami\Elastica\Query\Builder::disMaxClose
+     * @covers \Bonami\Elastica\Query\Builder::facets
+     * @covers \Bonami\Elastica\Query\Builder::facetsClose
+     * @covers \Bonami\Elastica\Query\Builder::filter
+     * @covers \Bonami\Elastica\Query\Builder::filterClose
+     * @covers \Bonami\Elastica\Query\Builder::filteredQuery
+     * @covers \Bonami\Elastica\Query\Builder::filteredQueryClose
+     * @covers \Bonami\Elastica\Query\Builder::must
+     * @covers \Bonami\Elastica\Query\Builder::mustClose
+     * @covers \Bonami\Elastica\Query\Builder::mustNot
+     * @covers \Bonami\Elastica\Query\Builder::mustNotClose
+     * @covers \Bonami\Elastica\Query\Builder::prefix
+     * @covers \Bonami\Elastica\Query\Builder::prefixClose
+     * @covers \Bonami\Elastica\Query\Builder::query
+     * @covers \Bonami\Elastica\Query\Builder::queryClose
+     * @covers \Bonami\Elastica\Query\Builder::queryString
+     * @covers \Bonami\Elastica\Query\Builder::queryStringClose
+     * @covers \Bonami\Elastica\Query\Builder::range
+     * @covers \Bonami\Elastica\Query\Builder::rangeClose
+     * @covers \Bonami\Elastica\Query\Builder::should
+     * @covers \Bonami\Elastica\Query\Builder::shouldClose
+     * @covers \Bonami\Elastica\Query\Builder::sort
+     * @covers \Bonami\Elastica\Query\Builder::sortClose
+     * @covers \Bonami\Elastica\Query\Builder::term
+     * @covers \Bonami\Elastica\Query\Builder::termClose
+     * @covers \Bonami\Elastica\Query\Builder::textPhrase
+     * @covers \Bonami\Elastica\Query\Builder::textPhraseClose
+     * @covers \Bonami\Elastica\Query\Builder::wildcard
+     * @covers \Bonami\Elastica\Query\Builder::wildcardClose
      */
     public function testQueryTypes($method, $queryType)
     {
@@ -163,10 +163,10 @@ class BuilderTest extends BaseTest
 
     /**
      * @group unit
-     * @covers \Elastica\Query\Builder::fieldOpen
-     * @covers \Elastica\Query\Builder::fieldClose
-     * @covers \Elastica\Query\Builder::open
-     * @covers \Elastica\Query\Builder::close
+     * @covers \Bonami\Elastica\Query\Builder::fieldOpen
+     * @covers \Bonami\Elastica\Query\Builder::fieldClose
+     * @covers \Bonami\Elastica\Query\Builder::open
+     * @covers \Bonami\Elastica\Query\Builder::close
      */
     public function testFieldOpenAndClose()
     {
@@ -178,7 +178,7 @@ class BuilderTest extends BaseTest
 
     /**
      * @group unit
-     * @covers \Elastica\Query\Builder::sortField
+     * @covers \Bonami\Elastica\Query\Builder::sortField
      */
     public function testSortField()
     {
@@ -189,7 +189,7 @@ class BuilderTest extends BaseTest
 
     /**
      * @group unit
-     * @covers \Elastica\Query\Builder::sortFields
+     * @covers \Bonami\Elastica\Query\Builder::sortFields
      */
     public function testSortFields()
     {
@@ -200,7 +200,7 @@ class BuilderTest extends BaseTest
 
     /**
      * @group unit
-     * @covers \Elastica\Query\Builder::queries
+     * @covers \Bonami\Elastica\Query\Builder::queries
      */
     public function testQueries()
     {
@@ -231,7 +231,7 @@ class BuilderTest extends BaseTest
     /**
      * @group unit
      * @dataProvider getFieldData
-     * @covers \Elastica\Query\Builder::field
+     * @covers \Bonami\Elastica\Query\Builder::field
      */
     public function testField($name, $value, $result)
     {
@@ -244,7 +244,7 @@ class BuilderTest extends BaseTest
      * @group unit
      * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage The produced query is not a valid json string : "{{}"
-     * @covers \Elastica\Query\Builder::toArray
+     * @covers \Bonami\Elastica\Query\Builder::toArray
      */
     public function testToArrayWithInvalidData()
     {
@@ -255,7 +255,7 @@ class BuilderTest extends BaseTest
 
     /**
      * @group unit
-     * @covers \Elastica\Query\Builder::toArray
+     * @covers \Bonami\Elastica\Query\Builder::toArray
      */
     public function testToArray()
     {

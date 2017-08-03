@@ -12,6 +12,7 @@ class MappingTest extends BaseTest
 {
     /**
      * @group functional
+     * @group single
      */
     public function testMappingStoreFields()
     {

@@ -12,7 +12,7 @@ class NestedTest extends BaseTest
 {
     protected function _getIndexForTest()
     {
-        $index = $this->_createIndex('Bonami\Elastica_test_filter_nested');
+        $index = $this->_createIndex('elastica_test_filter_nested');
         $type = $index->getType('user');
         $mapping = new Mapping();
         $mapping->setProperties(

@@ -39,7 +39,7 @@ class ThriftTest extends BaseTest
         // Creates a new index 'xodoa' and a type 'user' inside this index
         $client = $this->_getClient($config);
 
-        $index = $client->getIndex('Bonami\Elastica_test1');
+        $index = $client->getIndex('elastica_test1');
         $index->create(array(), true);
 
         $type = $index->getType('user');

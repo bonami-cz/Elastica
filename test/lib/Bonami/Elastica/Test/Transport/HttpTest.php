@@ -199,7 +199,7 @@ class HttpTest extends BaseTest
     {
         $client = $this->_getClient();
 
-        $index = $client->getIndex('Bonami\Elastica_body_reuse_test');
+        $index = $client->getIndex('elastica_body_reuse_test');
         $index->create(array(), true);
         $this->_waitForAllocation($index);
 
@@ -231,7 +231,7 @@ class HttpTest extends BaseTest
     {
         $client = $this->_getClient();
 
-        $index = $client->getIndex('Bonami\Elastica_0_body');
+        $index = $client->getIndex('elastica_0_body');
         $index->create(array(), true);
         $this->_waitForAllocation($index);
         $index->refresh();

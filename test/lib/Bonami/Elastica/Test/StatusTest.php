@@ -63,8 +63,8 @@ class StatusTest extends BaseTest
      */
     public function testIndexExists()
     {
-        $indexName = 'Bonami\Elastica_test';
-        $aliasName = 'Bonami\Elastica_test-alias';
+        $indexName = 'elastica_test';
+        $aliasName = 'elastica_test-alias';
 
         $client = $this->_getClient();
         $index = $client->getIndex($indexName);
@@ -88,7 +88,7 @@ class StatusTest extends BaseTest
      */
     public function testAliasExists()
     {
-        $aliasName = 'Bonami\Elastica_test-alias';
+        $aliasName = 'elastica_test-alias';
 
         $index1 = $this->_createIndex();
         $indexName = $index1->getName();

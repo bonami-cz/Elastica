@@ -461,7 +461,7 @@ class BulkTest extends BaseTest
             $this->markTestSkipped('Bulk udp not enabled?');
         }
 
-        $index = $client->getIndex('Bonami\Elastica_test');
+        $index = $client->getIndex('elastica_test');
         $index->create(array('index' => array('number_of_shards' => 1, 'number_of_replicas' => 0)), true);
         $type = $index->getType('udp_test');
         $client = $index->getClient();
@@ -605,7 +605,7 @@ class BulkTest extends BaseTest
         $docs = array($doc1, $doc2);
         $bulk = new Bulk($client);
         $bulk->setType($type);
-        $bulk->addDocuments($docs, \Elastica\Bulk\Action::OP_TYPE_UPDATE);
+        $bulk->addDocuments($docs, \Bonami\Elastica\Bulk\Action::OP_TYPE_UPDATE);
         $response = $bulk->send();
 
         $this->assertTrue($response->isOk());

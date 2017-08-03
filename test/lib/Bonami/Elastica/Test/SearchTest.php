@@ -69,8 +69,8 @@ class SearchTest extends BaseTest
         $search = new Search($client);
 
         $indices = array();
-        $indices[] = $client->getIndex('Bonami\Elastica_test1');
-        $indices[] = $client->getIndex('Bonami\Elastica_test2');
+        $indices[] = $client->getIndex('elastica_test1');
+        $indices[] = $client->getIndex('elastica_test2');
 
         $search->addIndices($indices);
 
@@ -567,7 +567,7 @@ class SearchTest extends BaseTest
     public function testIgnoreUnavailableOption()
     {
         $client = $this->_getClient();
-        $index = $client->getIndex('Bonami\Elastica_7086b4c2ee585bbb6740ece5ed7ece01');
+        $index = $client->getIndex('elastica_7086b4c2ee585bbb6740ece5ed7ece01');
         $query = new MatchAll();
 
         $search = new Search($client);

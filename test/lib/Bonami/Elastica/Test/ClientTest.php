@@ -29,7 +29,7 @@ class ClientTest extends BaseTest
     {
         // Creates a new index 'xodoa' and a type 'user' inside this index
         $client = $this->_getClient(array('connections' => array(array('host' => $this->_getHost(), 'port' => 9200))));
-        $index = $client->getIndex('Bonami\Elastica_test1');
+        $index = $client->getIndex('elastica_test1');
         $index->create(array(), true);
 
         $type = $index->getType('user');
@@ -66,7 +66,7 @@ class ClientTest extends BaseTest
             array('host' => $this->_getHost(), 'port' => 9200),
             array('host' => $this->_getHost(), 'port' => 9200),
         )));
-        $index = $client->getIndex('Bonami\Elastica_test1');
+        $index = $client->getIndex('elastica_test1');
         $index->create(array(), true);
 
         $type = $index->getType('user');
