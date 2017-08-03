@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Exception\QueryBuilderException;
 use Bonami\Elastica\Query;
@@ -39,10 +39,10 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase
         $qb = new QueryBuilder();
 
         // test one example QueryBuilder flow for each default DSL type
-        $this->assertInstanceOf('Elastica\Query\AbstractQuery', $qb->query()->match());
-        $this->assertInstanceOf('Elastica\Filter\AbstractFilter', $qb->filter()->bool());
-        $this->assertInstanceOf('Elastica\Aggregation\AbstractAggregation', $qb->aggregation()->avg('name'));
-        $this->assertInstanceOf('Elastica\Suggest\AbstractSuggest', $qb->suggest()->term('name', 'field'));
+        $this->assertInstanceOf('Bonami\Elastica\Query\AbstractQuery', $qb->query()->match());
+        $this->assertInstanceOf('Bonami\Elastica\Filter\AbstractFilter', $qb->filter()->bool());
+        $this->assertInstanceOf('Bonami\Elastica\Aggregation\AbstractAggregation', $qb->aggregation()->avg('name'));
+        $this->assertInstanceOf('Bonami\Elastica\Suggest\AbstractSuggest', $qb->suggest()->term('name', 'field'));
     }
 
     /**

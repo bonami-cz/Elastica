@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query;
@@ -139,7 +139,7 @@ class GuzzleTest extends BaseTest
     public function testBodyReuse()
     {
         $client = $this->_getClient(array('transport' => 'Guzzle', 'persistent' => false));
-        $index = $client->getIndex('elastica_body_reuse_test');
+        $index = $client->getIndex('Bonami\Elastica_body_reuse_test');
         $index->create(array(), true);
         $this->_waitForAllocation($index);
 
@@ -166,7 +166,7 @@ class GuzzleTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException Elastica\Exception\Connection\GuzzleException
+     * @expectedException \Bonami\Elastica\Exception\Connection\GuzzleException
      */
     public function testInvalidConnection()
     {

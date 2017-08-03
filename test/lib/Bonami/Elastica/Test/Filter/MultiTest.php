@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\AbstractMulti;
 use Bonami\Elastica\Filter\MatchAll;
@@ -96,7 +96,7 @@ class AbstractMultiTest extends BaseTest
 
     private function getStub()
     {
-        return $this->getMockForAbstractClass('Elastica\Test\Filter\AbstractMultiDebug');
+        return $this->getMockForAbstractClass('Bonami\Elastica\Test\Filter\AbstractMultiDebug');
     }
 }
 

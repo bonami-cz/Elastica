@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\Nested;
@@ -12,7 +12,7 @@ class NestedTest extends BaseTest
 {
     protected function _getIndexForTest()
     {
-        $index = $this->_createIndex('elastica_test_filter_nested');
+        $index = $this->_createIndex('Bonami\Elastica_test_filter_nested');
         $type = $index->getType('user');
         $mapping = new Mapping();
         $mapping->setProperties(
@@ -122,6 +122,6 @@ class NestedTest extends BaseTest
         $this->assertFalse($filter->setJoin(false)->getParam('join'));
 
         $returnValue = $filter->setJoin(true);
-        $this->assertInstanceOf('Elastica\Filter\Nested', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Nested', $returnValue);
     }
 }

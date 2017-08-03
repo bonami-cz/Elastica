@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Index;
@@ -162,7 +162,7 @@ class BoolQueryTest extends BaseTest
 
         $index->refresh();
 
-        $boolQuery = new \Elastica\Query\Bool();
+        $boolQuery = new \Bonami\Elastica\Query\Bool();
 
         $resultSet = $type->search($boolQuery);
 

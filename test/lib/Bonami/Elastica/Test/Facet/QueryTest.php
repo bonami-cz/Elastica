@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Facet;
+namespace Bonami\Elastica\Test\Facet;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Facet\Query as FacetQuery;

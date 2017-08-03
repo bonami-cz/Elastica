@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Result;
@@ -16,15 +16,15 @@ class ResultSetTest extends BaseTest
         $type = $index->getType('test');
 
         $type->addDocuments(array(
-            new Document(1, array('name' => 'elastica search')),
-            new Document(2, array('name' => 'elastica library')),
-            new Document(3, array('name' => 'elastica test')),
+            new Document(1, array('name' => 'Bonami\Elastica search')),
+            new Document(2, array('name' => 'Bonami\Elastica library')),
+            new Document(3, array('name' => 'Bonami\Elastica test')),
         ));
         $index->refresh();
 
-        $resultSet = $type->search('elastica search');
+        $resultSet = $type->search('Bonami\Elastica search');
 
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSet);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
         $this->assertEquals(3, $resultSet->getTotalHits());
         $this->assertGreaterThan(0, $resultSet->getMaxScore());
         $this->assertInternalType('array', $resultSet->getResults());
@@ -40,36 +40,36 @@ class ResultSetTest extends BaseTest
         $type = $index->getType('test');
 
         $type->addDocuments(array(
-            new Document(1, array('name' => 'elastica search')),
-            new Document(2, array('name' => 'elastica library')),
-            new Document(3, array('name' => 'elastica test')),
+            new Document(1, array('name' => 'Bonami\Elastica search')),
+            new Document(2, array('name' => 'Bonami\Elastica library')),
+            new Document(3, array('name' => 'Bonami\Elastica test')),
         ));
         $index->refresh();
 
-        $resultSet = $type->search('elastica search');
+        $resultSet = $type->search('Bonami\Elastica search');
 
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSet);
-        $this->assertInstanceOf('Elastica\Result', $resultSet[0]);
-        $this->assertInstanceOf('Elastica\Result', $resultSet[1]);
-        $this->assertInstanceOf('Elastica\Result', $resultSet[2]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $resultSet[0]);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $resultSet[1]);
+        $this->assertInstanceOf('Bonami\Elastica\Result', $resultSet[2]);
 
         $this->assertFalse(isset($resultSet[3]));
     }
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testInvalidOffsetCreation()
     {
         $index = $this->_createIndex();
         $type = $index->getType('test');
 
-        $doc = new Document(1, array('name' => 'elastica search'));
+        $doc = new Document(1, array('name' => 'Bonami\Elastica search'));
         $type->addDocument($doc);
         $index->refresh();
 
-        $resultSet = $type->search('elastica search');
+        $resultSet = $type->search('Bonami\Elastica search');
 
         $result = new Result(array('_id' => 'fakeresult'));
         $resultSet[1] = $result;
@@ -77,18 +77,18 @@ class ResultSetTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testInvalidOffsetGet()
     {
         $index = $this->_createIndex();
         $type = $index->getType('test');
 
-        $doc = new Document(1, array('name' => 'elastica search'));
+        $doc = new Document(1, array('name' => 'Bonami\Elastica search'));
         $type->addDocument($doc);
         $index->refresh();
 
-        $resultSet = $type->search('elastica search');
+        $resultSet = $type->search('Bonami\Elastica search');
 
         return $resultSet[3];
     }

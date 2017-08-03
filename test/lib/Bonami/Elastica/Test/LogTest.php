@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Log;
 use Bonami\Elastica\Test\Base as BaseTest;

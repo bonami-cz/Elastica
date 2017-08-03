@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\QueryBuilder\DSL;
+namespace Bonami\Elastica\Test\QueryBuilder\DSL;
 
 use Bonami\Elastica\Exception\NotImplementedException;
 use Bonami\Elastica\QueryBuilder\DSL;

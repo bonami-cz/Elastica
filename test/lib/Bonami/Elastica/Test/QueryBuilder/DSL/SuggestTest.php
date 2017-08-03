@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\QueryBuilder\DSL;
+namespace Bonami\Elastica\Test\QueryBuilder\DSL;
 
 use Bonami\Elastica\QueryBuilder\DSL;
 
@@ -12,7 +12,7 @@ class SuggestTest extends AbstractDSLTest
     {
         $suggestDSL = new DSL\Suggest();
 
-        $this->assertInstanceOf('Elastica\QueryBuilder\DSL', $suggestDSL);
+        $this->assertInstanceOf('Bonami\Elastica\QueryBuilder\DSL', $suggestDSL);
         $this->assertEquals(DSL::TYPE_SUGGEST, $suggestDSL->getType());
     }
 
@@ -23,9 +23,9 @@ class SuggestTest extends AbstractDSLTest
     {
         $suggestDSL = new DSL\Suggest();
 
-        $this->_assertImplemented($suggestDSL, 'completion', 'Elastica\Suggest\Completion', array('name', 'field'));
-        $this->_assertImplemented($suggestDSL, 'phrase', 'Elastica\Suggest\Phrase', array('name', 'field'));
-        $this->_assertImplemented($suggestDSL, 'term', 'Elastica\Suggest\Term', array('name', 'field'));
+        $this->_assertImplemented($suggestDSL, 'completion', 'Bonami\Elastica\Suggest\Completion', array('name', 'field'));
+        $this->_assertImplemented($suggestDSL, 'phrase', 'Bonami\Elastica\Suggest\Phrase', array('name', 'field'));
+        $this->_assertImplemented($suggestDSL, 'term', 'Bonami\Elastica\Suggest\Term', array('name', 'field'));
 
         $this->_assertNotImplemented($suggestDSL, 'context', array());
     }

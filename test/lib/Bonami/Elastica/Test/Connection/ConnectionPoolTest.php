@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Connection;
+namespace Bonami\Elastica\Test\Connection;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Connection\ConnectionPool;
@@ -34,7 +34,7 @@ class ConnectionPoolTest extends BaseTest
 
         $this->assertEquals($connections, $pool->getConnections());
 
-        $this->assertInstanceOf('Elastica\Connection\ConnectionPool', $pool->setConnections($connections));
+        $this->assertInstanceOf('Bonami\Elastica\Connection\ConnectionPool', $pool->setConnections($connections));
     }
 
     /**
@@ -53,7 +53,7 @@ class ConnectionPoolTest extends BaseTest
 
         $this->assertEquals($connections, $pool->getConnections());
 
-        $this->assertInstanceOf('Elastica\Connection\ConnectionPool', $pool->addConnection($connections[0]));
+        $this->assertInstanceOf('Bonami\Elastica\Connection\ConnectionPool', $pool->addConnection($connections[0]));
     }
 
     /**
@@ -85,7 +85,7 @@ class ConnectionPoolTest extends BaseTest
     {
         $pool = $this->createPool();
 
-        $this->assertInstanceOf('Elastica\Connection', $pool->getConnection());
+        $this->assertInstanceOf('Bonami\Elastica\Connection', $pool->getConnection());
     }
 
     protected function getConnections($quantity = 1)

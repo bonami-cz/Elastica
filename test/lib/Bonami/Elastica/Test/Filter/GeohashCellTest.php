@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\GeohashCell;

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Type;
+namespace Bonami\Elastica\Test\Type;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query;

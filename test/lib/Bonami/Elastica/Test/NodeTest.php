@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Node;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -16,7 +16,7 @@ class NodeTest extends BaseTest
         $name = reset($names);
 
         $node = new Node($name, $client);
-        $this->assertInstanceOf('Elastica\Node', $node);
+        $this->assertInstanceOf('Bonami\Elastica\Node', $node);
     }
 
     /**
@@ -32,7 +32,7 @@ class NodeTest extends BaseTest
 
         $info = $node->getInfo();
 
-        $this->assertInstanceOf('Elastica\Node\Info', $info);
+        $this->assertInstanceOf('Bonami\Elastica\Node\Info', $info);
     }
 
     /**
@@ -48,7 +48,7 @@ class NodeTest extends BaseTest
 
         $stats = $node->getStats();
 
-        $this->assertInstanceOf('Elastica\Node\Stats', $stats);
+        $this->assertInstanceOf('Bonami\Elastica\Node\Stats', $stats);
     }
 
     /**
@@ -75,6 +75,6 @@ class NodeTest extends BaseTest
      */
     public function testGetId()
     {
-        $node = new Node('Elastica', $this->_getClient());
+        $node = new Node('Bonami\Elastica', $this->_getClient());
     }
 }

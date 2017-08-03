@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Aggregation;
 use Bonami\Elastica\Document;
@@ -24,7 +24,7 @@ class SearchTest extends BaseTest
         $client = $this->_getClient();
         $search = new Search($client);
 
-        $this->assertInstanceOf('Elastica\Search', $search);
+        $this->assertInstanceOf('Bonami\Elastica\Search', $search);
         $this->assertSame($client, $search->getClient());
     }
 
@@ -69,8 +69,8 @@ class SearchTest extends BaseTest
         $search = new Search($client);
 
         $indices = array();
-        $indices[] = $client->getIndex('elastica_test1');
-        $indices[] = $client->getIndex('elastica_test2');
+        $indices[] = $client->getIndex('Bonami\Elastica_test1');
+        $indices[] = $client->getIndex('Bonami\Elastica_test2');
 
         $search->addIndices($indices);
 
@@ -134,7 +134,7 @@ class SearchTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testAddTypeInvalid()
     {
@@ -146,7 +146,7 @@ class SearchTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testAddIndexInvalid()
     {
@@ -344,7 +344,7 @@ class SearchTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testArrayConfigSearch()
     {
@@ -398,8 +398,8 @@ class SearchTest extends BaseTest
         $this->assertTrue(($resultSet->count() === 0) && $resultSet->getTotalHits() === 11);
 
         //Timeout - this one is a bit more tricky to test
-        $mockResponse = new \Elastica\Response(json_encode(array('timed_out' => true)));
-        $client = $this->getMockBuilder('Elastica\\Client')
+        $mockResponse = new \Bonami\Elastica\Response(json_encode(array('timed_out' => true)));
+        $client = $this->getMockBuilder('Bonami\Elastica\\Client')
             ->disableOriginalConstructor()
             ->getMock();
         $client->method('request')
@@ -512,7 +512,7 @@ class SearchTest extends BaseTest
 
         $search->addIndex($index)->addType($type);
         $resultSet = $search->search();
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSet);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
         $this->assertCount(10, $resultSet);
         $this->assertEquals(11, $resultSet->getTotalHits());
 
@@ -544,11 +544,11 @@ class SearchTest extends BaseTest
         $search->addIndex($index);
         $search->addType($type);
 
-        $result1 = $search->count(new \Elastica\Query\MatchAll());
+        $result1 = $search->count(new \Bonami\Elastica\Query\MatchAll());
         $this->assertEquals(1, $result1);
 
-        $result2 = $search->count(new \Elastica\Query\MatchAll(), true);
-        $this->assertInstanceOf('\Elastica\ResultSet', $result2);
+        $result2 = $search->count(new \Bonami\Elastica\Query\MatchAll(), true);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $result2);
         $this->assertEquals(1, $result2->getTotalHits());
     }
 
@@ -558,7 +558,7 @@ class SearchTest extends BaseTest
     public function testScanAndScroll()
     {
         $search = new Search($this->_getClient());
-        $this->assertInstanceOf('Elastica\ScanAndScroll', $search->scanAndScroll());
+        $this->assertInstanceOf('Bonami\Elastica\ScanAndScroll', $search->scanAndScroll());
     }
 
     /**
@@ -567,7 +567,7 @@ class SearchTest extends BaseTest
     public function testIgnoreUnavailableOption()
     {
         $client = $this->_getClient();
-        $index = $client->getIndex('elastica_7086b4c2ee585bbb6740ece5ed7ece01');
+        $index = $client->getIndex('Bonami\Elastica_7086b4c2ee585bbb6740ece5ed7ece01');
         $query = new MatchAll();
 
         $search = new Search($client);
@@ -582,7 +582,7 @@ class SearchTest extends BaseTest
         $this->assertEquals('IndexMissingException', $exception->getElasticsearchException()->getExceptionName());
 
         $results = $search->search($query, array(Search::OPTION_SEARCH_IGNORE_UNAVAILABLE => true));
-        $this->assertInstanceOf('\Elastica\ResultSet', $results);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $results);
     }
 
     /**

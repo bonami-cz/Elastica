@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Facet;
+namespace Bonami\Elastica\Test\Facet;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Facet\DateHistogram;
@@ -16,8 +16,8 @@ class DateHistogramTest extends BaseTest
     public function testClassHierarchy()
     {
         $facet = new DateHistogram('dateHist1');
-        $this->assertInstanceOf('Elastica\Facet\Histogram', $facet);
-        $this->assertInstanceOf('Elastica\Facet\AbstractFacet', $facet);
+        $this->assertInstanceOf('Bonami\Elastica\Facet\Histogram', $facet);
+        $this->assertInstanceOf('Bonami\Elastica\Facet\AbstractFacet', $facet);
         unset($facet);
     }
 
@@ -43,7 +43,7 @@ class DateHistogramTest extends BaseTest
         $type->addDocument($doc);
         $doc = new Document(3, array('name' => 'rachelle clemente', 'dtmPosted' => '2011-07-08 08:53:00'));
         $type->addDocument($doc);
-        $doc = new Document(4, array('name' => 'elastica search', 'dtmPosted' => '2011-07-08 01:53:00'));
+        $doc = new Document(4, array('name' => 'Bonami\Elastica search', 'dtmPosted' => '2011-07-08 01:53:00'));
         $type->addDocument($doc);
 
         $facet = new DateHistogram('dateHist1');
@@ -84,7 +84,7 @@ class DateHistogramTest extends BaseTest
         $type->addDocument($doc);
         $doc = new Document(3, array('name' => 'rachelle clemente', 'dtmPosted' => 1310115180));
         $type->addDocument($doc);
-        $doc = new Document(4, array('name' => 'elastica search', 'dtmPosted' => 1310089980));
+        $doc = new Document(4, array('name' => 'Bonami\Elastica search', 'dtmPosted' => 1310089980));
         $type->addDocument($doc);
 
         $facet = new DateHistogram('dateHist1');

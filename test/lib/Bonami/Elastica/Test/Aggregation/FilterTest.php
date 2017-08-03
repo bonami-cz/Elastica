@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Aggregation;
+namespace Bonami\Elastica\Test\Aggregation;
 
 use Bonami\Elastica\Aggregation\Avg;
 use Bonami\Elastica\Aggregation\Filter;

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Query;
@@ -24,7 +24,7 @@ class NullTransportTest extends BaseTest
         $connection = new Connection(array('transport' => 'NullTransport'));
         $client->setConnections(array($connection));
 
-        $index = $client->getIndex('elasticaNullTransportTest1');
+        $index = $client->getIndex('Bonami\ElasticaNullTransportTest1');
 
         $resultSet = $index->search(new Query());
         $this->assertNotNull($resultSet);
@@ -68,7 +68,7 @@ class NullTransportTest extends BaseTest
         $transport = new NullTransport();
         $response = $transport->exec($request, $params);
 
-        $this->assertInstanceOf('\Elastica\Response', $response);
+        $this->assertInstanceOf('Bonami\Elastica\Response', $response);
 
         $data = $response->getData();
         $this->assertEquals($params, $data['params']);
@@ -85,10 +85,10 @@ class NullTransportTest extends BaseTest
 
         $request = new Request('/test');
         $params = array('name' => 'ruflin');
-        $transport = new \Elastica\Transport\Null();
+        $transport = new \Bonami\Elastica\Transport\Null();
         $response = $transport->exec($request, $params);
 
-        $this->assertInstanceOf('\Elastica\Response', $response);
+        $this->assertInstanceOf('Bonami\Elastica\Response', $response);
 
         $data = $response->getData();
         $this->assertEquals($params, $data['params']);

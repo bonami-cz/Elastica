@@ -18,7 +18,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      *
      * @var string
      */
-    protected static $_class = 'Elastica\\ResultSet';
+    protected static $_class = 'Bonami\\Elastica\\ResultSet';
 
     /**
      * Results.

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Query\Nested;
 use Bonami\Elastica\Query\QueryString;
@@ -16,8 +16,8 @@ class NestedTest extends BaseTest
         $path = 'test1';
 
         $queryString = new QueryString('test');
-        $this->assertInstanceOf('Elastica\Query\Nested', $nested->setQuery($queryString));
-        $this->assertInstanceOf('Elastica\Query\Nested', $nested->setPath($path));
+        $this->assertInstanceOf('Bonami\Elastica\Query\Nested', $nested->setQuery($queryString));
+        $this->assertInstanceOf('Bonami\Elastica\Query\Nested', $nested->setPath($path));
         $expected = array(
             'nested' => array(
                 'query' => $queryString->toArray(),

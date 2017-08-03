@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Bulk;
 use Bonami\Elastica\Bulk\Action;
@@ -43,19 +43,19 @@ class BulkTest extends BaseTest
 
         $actions = $bulk->getActions();
 
-        $this->assertInstanceOf('Elastica\Bulk\Action\IndexDocument', $actions[0]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action\IndexDocument', $actions[0]);
         $this->assertEquals('index', $actions[0]->getOpType());
         $this->assertSame($newDocument1, $actions[0]->getDocument());
 
-        $this->assertInstanceOf('Elastica\Bulk\Action\IndexDocument', $actions[1]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action\IndexDocument', $actions[1]);
         $this->assertEquals('index', $actions[1]->getOpType());
         $this->assertSame($newDocument2, $actions[1]->getDocument());
 
-        $this->assertInstanceOf('Elastica\Bulk\Action\CreateDocument', $actions[2]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action\CreateDocument', $actions[2]);
         $this->assertEquals('create', $actions[2]->getOpType());
         $this->assertSame($newDocument3, $actions[2]->getDocument());
 
-        $this->assertInstanceOf('Elastica\Bulk\Action\IndexDocument', $actions[3]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action\IndexDocument', $actions[3]);
         $this->assertEquals('index', $actions[3]->getOpType());
         $this->assertSame($newDocument4, $actions[3]->getDocument());
 
@@ -88,13 +88,13 @@ class BulkTest extends BaseTest
 
         $response = $bulk->send();
 
-        $this->assertInstanceOf('Elastica\Bulk\ResponseSet', $response);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\ResponseSet', $response);
 
         $this->assertTrue($response->isOk());
         $this->assertFalse($response->hasError());
 
         foreach ($response as $i => $bulkResponse) {
-            $this->assertInstanceOf('Elastica\Bulk\Response', $bulkResponse);
+            $this->assertInstanceOf('Bonami\Elastica\Bulk\Response', $bulkResponse);
             $this->assertTrue($bulkResponse->isOk());
             $this->assertFalse($bulkResponse->hasError());
             $this->assertSame($actions[$i], $bulkResponse->getAction());
@@ -258,29 +258,29 @@ class BulkTest extends BaseTest
         $this->assertInternalType('array', $actions);
         $this->assertEquals(5, count($actions));
 
-        $this->assertInstanceOf('Elastica\Bulk\Action', $actions[0]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action', $actions[0]);
         $this->assertEquals('index', $actions[0]->getOpType());
         $this->assertEquals($rawData[0]['index'], $actions[0]->getMetadata());
         $this->assertTrue($actions[0]->hasSource());
         $this->assertEquals($rawData[1], $actions[0]->getSource());
 
-        $this->assertInstanceOf('Elastica\Bulk\Action', $actions[1]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action', $actions[1]);
         $this->assertEquals('delete', $actions[1]->getOpType());
         $this->assertEquals($rawData[2]['delete'], $actions[1]->getMetadata());
         $this->assertFalse($actions[1]->hasSource());
 
-        $this->assertInstanceOf('Elastica\Bulk\Action', $actions[2]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action', $actions[2]);
         $this->assertEquals('delete', $actions[2]->getOpType());
         $this->assertEquals($rawData[3]['delete'], $actions[2]->getMetadata());
         $this->assertFalse($actions[2]->hasSource());
 
-        $this->assertInstanceOf('Elastica\Bulk\Action', $actions[3]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action', $actions[3]);
         $this->assertEquals('create', $actions[3]->getOpType());
         $this->assertEquals($rawData[4]['create'], $actions[3]->getMetadata());
         $this->assertTrue($actions[3]->hasSource());
         $this->assertEquals($rawData[5], $actions[3]->getSource());
 
-        $this->assertInstanceOf('Elastica\Bulk\Action', $actions[4]);
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Action', $actions[4]);
         $this->assertEquals('delete', $actions[4]->getOpType());
         $this->assertEquals($rawData[6]['delete'], $actions[4]->getMetadata());
         $this->assertFalse($actions[4]->hasSource());
@@ -289,7 +289,7 @@ class BulkTest extends BaseTest
     /**
      * @group unit
      * @dataProvider invalidRawDataProvider
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testInvalidRawData($rawData, $failMessage)
     {
@@ -461,7 +461,7 @@ class BulkTest extends BaseTest
             $this->markTestSkipped('Bulk udp not enabled?');
         }
 
-        $index = $client->getIndex('elastica_test');
+        $index = $client->getIndex('Bonami\Elastica_test');
         $index->create(array('index' => array('number_of_shards' => 1, 'number_of_replicas' => 0)), true);
         $type = $index->getType('udp_test');
         $client = $index->getClient();
@@ -533,7 +533,7 @@ class BulkTest extends BaseTest
         $doc2 = $type->createDocument(2, array('name' => 'The Walrus'));
         $bulk = new Bulk($client);
         $bulk->setType($type);
-        $updateAction = new \Elastica\Bulk\Action\UpdateDocument($doc2);
+        $updateAction = new \Bonami\Elastica\Bulk\Action\UpdateDocument($doc2);
         $bulk->addAction($updateAction);
         $response = $bulk->send();
 
@@ -547,7 +547,7 @@ class BulkTest extends BaseTest
         $this->assertEquals('The Walrus', $docData['name']);
 
         //test updating via script
-        $script = new \Elastica\Script('ctx._source.name += param1;', array('param1' => ' was Paul'), null, 2);
+        $script = new \Bonami\Elastica\Script('ctx._source.name += param1;', array('param1' => ' was Paul'), null, 2);
         $doc2 = new Document();
         $script->setUpsert($doc2);
         $updateAction = Action\AbstractDocument::create($script, Action::OP_TYPE_UPDATE);
@@ -565,7 +565,7 @@ class BulkTest extends BaseTest
         $this->assertEquals('The Walrus was Paul', $doc2->name);
 
         //test upsert
-        $script = new \Elastica\Script('ctx._scource.counter += count', array('count' => 1), null, 5);
+        $script = new \Bonami\Elastica\Script('ctx._scource.counter += count', array('count' => 1), null, 5);
         $doc = new Document('', array('counter' => 1));
         $script->setUpsert($doc);
         $updateAction = Action\AbstractDocument::create($script, Action::OP_TYPE_UPDATE);
@@ -582,7 +582,7 @@ class BulkTest extends BaseTest
         $this->assertEquals(1, $doc->counter);
 
         //test doc_as_upsert
-        $doc = new \Elastica\Document(6, array('test' => 'test'));
+        $doc = new \Bonami\Elastica\Document(6, array('test' => 'test'));
         $doc->setDocAsUpsert(true);
         $updateAction = Action\AbstractDocument::create($doc, Action::OP_TYPE_UPDATE);
         $bulk = new Bulk($client);
@@ -598,9 +598,9 @@ class BulkTest extends BaseTest
         $this->assertEquals('test', $doc->test);
 
         //test doc_as_upsert with set of documents (use of addDocuments)
-        $doc1 = new \Elastica\Document(7, array('test' => 'test1'));
+        $doc1 = new \Bonami\Elastica\Document(7, array('test' => 'test1'));
         $doc1->setDocAsUpsert(true);
-        $doc2 = new \Elastica\Document(8, array('test' => 'test2'));
+        $doc2 = new \Bonami\Elastica\Document(8, array('test' => 'test2'));
         $doc2->setDocAsUpsert(true);
         $docs = array($doc1, $doc2);
         $bulk = new Bulk($client);
@@ -622,7 +622,7 @@ class BulkTest extends BaseTest
         $bulk = new Bulk($client);
         $bulk->setType($type);
         $doc3->setData('{"name" : "Paul it is"}');
-        $updateAction = new \Elastica\Bulk\Action\UpdateDocument($doc3);
+        $updateAction = new \Bonami\Elastica\Bulk\Action\UpdateDocument($doc3);
         $bulk->addAction($updateAction);
         $response = $bulk->send();
 
@@ -679,7 +679,7 @@ class BulkTest extends BaseTest
         $metadata = $actions[0]->getMetadata();
         $this->assertEquals(5, $metadata[ '_retry_on_conflict' ]);
 
-        $script = new \Elastica\Script('');
+        $script = new \Bonami\Elastica\Script('');
         $script->setRetryOnConflict(5);
 
         $bulk = new Bulk($client);
@@ -697,7 +697,7 @@ class BulkTest extends BaseTest
     public function testSetShardTimeout()
     {
         $bulk = new Bulk($this->_getClient());
-        $this->assertInstanceOf('Elastica\Bulk', $bulk->setShardTimeout(10));
+        $this->assertInstanceOf('Bonami\Elastica\Bulk', $bulk->setShardTimeout(10));
     }
 
     /**
@@ -706,7 +706,7 @@ class BulkTest extends BaseTest
     public function testSetRequestParam()
     {
         $bulk = new Bulk($this->_getClient());
-        $this->assertInstanceOf('Elastica\Bulk', $bulk->setRequestParam('key', 'value'));
+        $this->assertInstanceOf('Bonami\Elastica\Bulk', $bulk->setRequestParam('key', 'value'));
     }
 
     /**

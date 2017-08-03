@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\HasChild;
@@ -51,7 +51,7 @@ class HasChildTest extends BaseTest
         $this->assertEquals('bar', $filter->getParam('type'));
 
         $returnValue = $filter->setType('last');
-        $this->assertInstanceOf('Elastica\Filter\HasChild', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\HasChild', $returnValue);
     }
 
     /**
@@ -66,7 +66,7 @@ class HasChildTest extends BaseTest
         $this->assertEquals(2, $filter->getParam('min_children'));
 
         $returnValue = $filter->setMinimumChildrenCount(2);
-        $this->assertInstanceOf('Elastica\Filter\HasChild', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\HasChild', $returnValue);
     }
 
     /**
@@ -81,7 +81,7 @@ class HasChildTest extends BaseTest
         $this->assertEquals(10, $filter->getParam('max_children'));
 
         $returnValue = $filter->setMaximumChildrenCount(10);
-        $this->assertInstanceOf('Elastica\Filter\HasChild', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\HasChild', $returnValue);
     }
 
     /**
@@ -89,7 +89,7 @@ class HasChildTest extends BaseTest
      */
     public function testFilterInsideHasChild()
     {
-        $f = new \Elastica\Filter\MatchAll();
+        $f = new \Bonami\Elastica\Filter\MatchAll();
 
         $type = 'test';
 
@@ -112,11 +112,11 @@ class HasChildTest extends BaseTest
     {
         $index = $this->prepareSearchData();
 
-        $f = new \Elastica\Filter\Term();
+        $f = new \Bonami\Elastica\Filter\Term();
         $f->setTerm('user', 'child1');
         $filter = new HasChild($f, 'child');
 
-        $searchQuery = new \Elastica\Query();
+        $searchQuery = new \Bonami\Elastica\Query();
         $searchQuery->setPostFilter($filter);
         $searchResults = $index->search($searchQuery);
 
@@ -135,11 +135,11 @@ class HasChildTest extends BaseTest
     {
         $index = $this->prepareSearchData();
 
-        $f = new \Elastica\Query\Term();
+        $f = new \Bonami\Elastica\Query\Term();
         $f->setTerm('user', 'child1');
         $filter = new HasChild($f, 'child');
 
-        $searchQuery = new \Elastica\Query();
+        $searchQuery = new \Bonami\Elastica\Query();
         $searchQuery->setPostFilter($filter);
         $searchResults = $index->search($searchQuery);
 
@@ -158,11 +158,11 @@ class HasChildTest extends BaseTest
     {
         $index = $this->prepareSearchData();
 
-        $f = new \Elastica\Query\Match();
+        $f = new \Bonami\Elastica\Query\Match();
         $f->setField('alt.name', 'testname');
         $filter = new HasChild($f, 'child');
 
-        $searchQuery = new \Elastica\Query();
+        $searchQuery = new \Bonami\Elastica\Query();
         $searchQuery->setPostFilter($filter);
         $searchResults = $index->search($searchQuery);
 
@@ -183,7 +183,7 @@ class HasChildTest extends BaseTest
         $parentType = $index->getType('parent');
 
         $childType = $index->getType('child');
-        $childMapping = new \Elastica\Type\Mapping($childType);
+        $childMapping = new \Bonami\Elastica\Type\Mapping($childType);
         $childMapping->setParent('parent');
         $childMapping->send();
 

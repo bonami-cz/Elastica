@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\GeoBoundingBox;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -20,12 +20,12 @@ class GeoBoundingBoxTest extends BaseTest
         $this->assertEquals($expectedArray, $filter->getParam($key));
 
         $returnValue = $filter->addCoordinates($key, $coords);
-        $this->assertInstanceOf('Elastica\Filter\GeoBoundingBox', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\GeoBoundingBox', $returnValue);
     }
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testAddCoordinatesInvalidException()
     {

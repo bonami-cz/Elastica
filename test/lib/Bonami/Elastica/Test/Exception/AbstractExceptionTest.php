@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Exception;
+namespace Bonami\Elastica\Test\Exception;
 
 use Bonami\Elastica\Test\Base as BaseTest;
 
@@ -10,7 +10,7 @@ abstract class AbstractExceptionTest extends BaseTest
         $reflection = new \ReflectionObject($this);
 
         // Elastica\Test\Exception\RuntimeExceptionTest => Elastica\Exception\RuntimeExceptionTest
-        $name = preg_replace('/^Elastica\\\\Test/', 'Elastica', $reflection->getName());
+        $name = preg_replace('/^Bonami\\\\Elastica\\\\Test/', 'Bonami\Elastica', $reflection->getName());
 
         // Elastica\Exception\RuntimeExceptionTest => Elastica\Exception\RuntimeException
         $name = preg_replace('/Test$/', '', $name);
@@ -26,6 +26,6 @@ abstract class AbstractExceptionTest extends BaseTest
         $className = $this->_getExceptionClass();
         $reflection = new \ReflectionClass($className);
         $this->assertTrue($reflection->isSubclassOf('Exception'));
-        $this->assertTrue($reflection->implementsInterface('Elastica\Exception\ExceptionInterface'));
+        $this->assertTrue($reflection->implementsInterface('\Bonami\Elastica\Exception\ExceptionInterface'));
     }
 }

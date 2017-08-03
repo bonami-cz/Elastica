@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Query\Builder;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -14,7 +14,7 @@ class BuilderTest extends BaseTest
     public function testFactory()
     {
         $this->assertInstanceOf(
-            'Elastica\Query\Builder',
+            'Bonami\Elastica\Query\Builder',
             Builder::factory('some string')
         );
     }
@@ -242,7 +242,7 @@ class BuilderTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      * @expectedExceptionMessage The produced query is not a valid json string : "{{}"
      * @covers \Elastica\Query\Builder::toArray
      */

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Exception\ResponseException;
 use Bonami\Elastica\Status;
@@ -14,7 +14,7 @@ class StatusTest extends BaseTest
     {
         $index = $this->_createIndex();
         $status = new Status($index->getClient());
-        $this->assertInstanceOf('Elastica\Response', $status->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $status->getResponse());
     }
 
     /**
@@ -30,7 +30,7 @@ class StatusTest extends BaseTest
         $this->assertInternalType('array', $statuses);
 
         foreach ($statuses as $indexStatus) {
-            $this->assertInstanceOf('Elastica\Index\Status', $indexStatus);
+            $this->assertInstanceOf('Bonami\Elastica\Index\Status', $indexStatus);
         }
     }
 
@@ -63,8 +63,8 @@ class StatusTest extends BaseTest
      */
     public function testIndexExists()
     {
-        $indexName = 'elastica_test';
-        $aliasName = 'elastica_test-alias';
+        $indexName = 'Bonami\Elastica_test';
+        $aliasName = 'Bonami\Elastica_test-alias';
 
         $client = $this->_getClient();
         $index = $client->getIndex($indexName);
@@ -88,7 +88,7 @@ class StatusTest extends BaseTest
      */
     public function testAliasExists()
     {
-        $aliasName = 'elastica_test-alias';
+        $aliasName = 'Bonami\Elastica_test-alias';
 
         $index1 = $this->_createIndex();
         $indexName = $index1->getName();

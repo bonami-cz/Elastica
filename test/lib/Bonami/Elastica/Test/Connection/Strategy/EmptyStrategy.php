@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Connection\Strategy;
+namespace Bonami\Elastica\Test\Connection\Strategy;
 
 use Bonami\Elastica\Connection\Strategy\StrategyInterface;
 

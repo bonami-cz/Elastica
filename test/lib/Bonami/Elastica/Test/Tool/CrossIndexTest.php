@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Tool;
+namespace Bonami\Elastica\Test\Tool;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Test\Base;
@@ -21,7 +21,7 @@ class CrossIndexTest extends Base
         $newIndex = $this->_createIndex(null, true, 2);
 
         $this->assertInstanceOf(
-            'Elastica\Index',
+            'Bonami\Elastica\Index',
             CrossIndex::reindex($oldIndex, $newIndex)
         );
 
@@ -90,7 +90,7 @@ class CrossIndexTest extends Base
 
         // mapping
         $this->assertInstanceOf(
-            'Elastica\Index',
+            'Bonami\Elastica\Index',
             CrossIndex::copy($oldIndex, $newIndex)
         );
 

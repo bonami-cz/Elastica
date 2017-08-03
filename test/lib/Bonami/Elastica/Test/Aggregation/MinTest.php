@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Aggregation;
+namespace Bonami\Elastica\Test\Aggregation;
 
 use Bonami\Elastica\Aggregation\Min;
 use Bonami\Elastica\Document;

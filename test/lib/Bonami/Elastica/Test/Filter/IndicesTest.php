@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\BoolNot;
@@ -98,7 +98,7 @@ class IndicesTest extends BaseTest
         $this->assertEquals($expected, $filter->getParam('indices'));
 
         $returnValue = $filter->setIndices($indices);
-        $this->assertInstanceOf('Elastica\Filter\Indices', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Indices', $returnValue);
     }
 
     /**
@@ -120,6 +120,6 @@ class IndicesTest extends BaseTest
         $this->assertEquals($expected, $filter->getParam('indices'));
 
         $returnValue = $filter->addIndex('bar');
-        $this->assertInstanceOf('Elastica\Filter\Indices', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Indices', $returnValue);
     }
 }

@@ -28,8 +28,8 @@ class StrategyFactory
         }
 
         if (is_string($strategyName)) {
-            $requiredInterface = '\\Elastica\\Connection\\Strategy\\StrategyInterface';
-            $predefinedStrategy = '\\Elastica\\Connection\\Strategy\\'.$strategyName;
+            $requiredInterface = '\\Bonami\\Elastica\\Connection\\Strategy\\StrategyInterface';
+            $predefinedStrategy = '\\Bonami\\Elastica\\Connection\\Strategy\\'.$strategyName;
 
             if (class_exists($predefinedStrategy) && class_implements($predefinedStrategy, $requiredInterface)) {
                 return new $predefinedStrategy();
@@ -40,6 +40,6 @@ class StrategyFactory
             }
         }
 
-        throw new InvalidException('Can\'t create strategy instance by given argument');
+        throw new InvalidException('Can\'t create strategy instance by given argument ');
     }
 }

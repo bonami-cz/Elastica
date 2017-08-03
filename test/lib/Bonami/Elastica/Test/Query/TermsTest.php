@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Query\Terms;
@@ -54,7 +54,7 @@ class TermsTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testInvalidParams()
     {

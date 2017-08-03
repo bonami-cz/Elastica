@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Exception\InvalidException;
@@ -20,7 +20,7 @@ class DocumentTest extends BaseTest
         }
         $doc = new Document();
         $returnValue = $doc->addFile('key', $fileName);
-        $this->assertInstanceOf('Elastica\Document', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Document', $returnValue);
     }
 
     /**
@@ -30,7 +30,7 @@ class DocumentTest extends BaseTest
     {
         $doc = new Document();
         $returnValue = $doc->addGeoPoint('point', 38.89859, -77.035971);
-        $this->assertInstanceOf('Elastica\Document', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Document', $returnValue);
     }
 
     /**
@@ -40,7 +40,7 @@ class DocumentTest extends BaseTest
     {
         $doc = new Document();
         $returnValue = $doc->setData(array('data'));
-        $this->assertInstanceOf('Elastica\Document', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Document', $returnValue);
     }
 
     /**
@@ -192,9 +192,9 @@ class DocumentTest extends BaseTest
         $this->assertNull($data['field4']);
 
         $returnValue = $document->set('field1', 'changed1');
-        $this->assertInstanceOf('Elastica\Document', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Document', $returnValue);
         $returnValue = $document->remove('field3');
-        $this->assertInstanceOf('Elastica\Document', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Document', $returnValue);
         try {
             $document->remove('field5');
             $this->fail('Undefined field unset should throw exception');

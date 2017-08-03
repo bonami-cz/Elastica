@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Exception\Connection;
+namespace Bonami\Elastica\Test\Exception\Connection;
 
 use Bonami\Elastica\Test\Exception\AbstractExceptionTest;
 

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Bulk;
+namespace Bonami\Elastica\Test\Bulk;
 
 use Bonami\Elastica\Bulk;
 use Bonami\Elastica\Bulk\Action;
@@ -36,7 +36,7 @@ class ResponseSetTest extends BaseTest
         } catch (ResponseException $e) {
             $responseSet = $e->getResponseSet();
 
-            $this->assertInstanceOf('Elastica\\Bulk\\ResponseSet', $responseSet);
+            $this->assertInstanceOf('Bonami\Elastica\\Bulk\\ResponseSet', $responseSet);
 
             $this->assertTrue($responseSet->hasError());
             $this->assertNotEquals('AnotherExceptionMessage', $responseSet->getError());
@@ -45,12 +45,12 @@ class ResponseSetTest extends BaseTest
             $actionExceptions = $e->getActionExceptions();
             $this->assertEquals(2, count($actionExceptions));
 
-            $this->assertInstanceOf('Elastica\Exception\Bulk\Response\ActionException', $actionExceptions[0]);
+            $this->assertInstanceOf('Bonami\Elastica\Exception\Bulk\Response\ActionException', $actionExceptions[0]);
             $this->assertSame($actions[1], $actionExceptions[0]->getAction());
             $this->assertContains('SomeExceptionMessage', $actionExceptions[0]->getMessage());
             $this->assertTrue($actionExceptions[0]->getResponse()->hasError());
 
-            $this->assertInstanceOf('Elastica\Exception\Bulk\Response\ActionException', $actionExceptions[1]);
+            $this->assertInstanceOf('Bonami\Elastica\Exception\Bulk\Response\ActionException', $actionExceptions[1]);
             $this->assertSame($actions[2], $actionExceptions[1]->getAction());
             $this->assertContains('AnotherExceptionMessage', $actionExceptions[1]->getMessage());
             $this->assertTrue($actionExceptions[1]->getResponse()->hasError());
@@ -71,7 +71,7 @@ class ResponseSetTest extends BaseTest
         $this->assertEquals(3, count($bulkResponses));
 
         foreach ($bulkResponses as $i => $bulkResponse) {
-            $this->assertInstanceOf('Elastica\\Bulk\\Response', $bulkResponse);
+            $this->assertInstanceOf('Bonami\Elastica\\Bulk\\Response', $bulkResponse);
             $bulkResponseData = $bulkResponse->getData();
             $this->assertInternalType('array', $bulkResponseData);
             $this->assertArrayHasKey('_id', $bulkResponseData);
@@ -93,7 +93,7 @@ class ResponseSetTest extends BaseTest
         $this->assertEquals(3, count($responseSet));
 
         foreach ($responseSet as $i => $bulkResponse) {
-            $this->assertInstanceOf('Elastica\Bulk\Response', $bulkResponse);
+            $this->assertInstanceOf('Bonami\Elastica\Bulk\Response', $bulkResponse);
             $bulkResponseData = $bulkResponse->getData();
             $this->assertInternalType('array', $bulkResponseData);
             $this->assertArrayHasKey('_id', $bulkResponseData);
@@ -103,20 +103,20 @@ class ResponseSetTest extends BaseTest
         }
 
         $this->assertFalse($responseSet->valid());
-        $this->assertNotInstanceOf('Elastica\Bulk\Response', $responseSet->current());
+        $this->assertNotInstanceOf('Bonami\Elastica\Bulk\Response', $responseSet->current());
         $this->assertFalse($responseSet->current());
 
         $responseSet->next();
 
         $this->assertFalse($responseSet->valid());
-        $this->assertNotInstanceOf('Elastica\Bulk\Response', $responseSet->current());
+        $this->assertNotInstanceOf('Bonami\Elastica\Bulk\Response', $responseSet->current());
         $this->assertFalse($responseSet->current());
 
         $responseSet->rewind();
 
         $this->assertEquals(0, $responseSet->key());
         $this->assertTrue($responseSet->valid());
-        $this->assertInstanceOf('Elastica\Bulk\Response', $responseSet->current());
+        $this->assertInstanceOf('Bonami\Elastica\Bulk\Response', $responseSet->current());
     }
 
     public function isOkDataProvider()
@@ -139,7 +139,7 @@ class ResponseSetTest extends BaseTest
      */
     protected function _createResponseSet(array $responseData, array $actions)
     {
-        $client = $this->getMock('Elastica\\Client', array('request'));
+        $client = $this->getMock('Bonami\Elastica\\Client', array('request'));
 
         $client->expects($this->once())
             ->method('request')

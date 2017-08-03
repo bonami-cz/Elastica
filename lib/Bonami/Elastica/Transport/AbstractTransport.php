@@ -89,7 +89,7 @@ abstract class AbstractTransport extends Param
         }
 
         if (is_string($transport)) {
-            $className = 'Elastica\\Transport\\'.$transport;
+            $className = 'Bonami\\Elastica\\Transport\\'.$transport;
 
             if (!class_exists($className)) {
                 throw new InvalidException('Invalid transport');

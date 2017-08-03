@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Exception\ResponseException;
@@ -91,7 +91,7 @@ class ScriptFileTest extends BaseTest
         $string = 'calculate-distance.groovy';
         $scriptFile = ScriptFile::create($string);
 
-        $this->assertInstanceOf('Elastica\ScriptFile', $scriptFile);
+        $this->assertInstanceOf('Bonami\Elastica\ScriptFile', $scriptFile);
 
         $this->assertEquals($string, $scriptFile->getScriptFile());
 
@@ -110,7 +110,7 @@ class ScriptFileTest extends BaseTest
 
         $scriptFile = ScriptFile::create($data);
 
-        $this->assertInstanceOf('Elastica\ScriptFile', $scriptFile);
+        $this->assertInstanceOf('Bonami\Elastica\ScriptFile', $scriptFile);
         $this->assertSame($data, $scriptFile);
     }
 
@@ -131,7 +131,7 @@ class ScriptFileTest extends BaseTest
 
         $scriptFile = ScriptFile::create($array);
 
-        $this->assertInstanceOf('Elastica\ScriptFile', $scriptFile);
+        $this->assertInstanceOf('Bonami\Elastica\ScriptFile', $scriptFile);
 
         $this->assertEquals($string, $scriptFile->getScriptFile());
         $this->assertEquals($params, $scriptFile->getParams());
@@ -142,7 +142,7 @@ class ScriptFileTest extends BaseTest
     /**
      * @group unit
      * @dataProvider dataProviderCreateInvalid
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testCreateInvalid($data)
     {
@@ -178,6 +178,6 @@ class ScriptFileTest extends BaseTest
         $scriptFile->setScriptFile('bar');
         $this->assertEquals('bar', $scriptFile->getScriptFile());
 
-        $this->assertInstanceOf('Elastica\ScriptFile', $scriptFile->setScriptFile('foo'));
+        $this->assertInstanceOf('Bonami\Elastica\ScriptFile', $scriptFile->setScriptFile('foo'));
     }
 }

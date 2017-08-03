@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\Range;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -13,7 +13,7 @@ class RangeTest extends BaseTest
     {
         $rangeFilter = new Range();
         $returnValue = $rangeFilter->addField('fieldName', array('to' => 'value'));
-        $this->assertInstanceOf('Elastica\Filter\Range', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Range', $returnValue);
     }
 
     /**
@@ -43,7 +43,7 @@ class RangeTest extends BaseTest
         $this->assertEquals('fielddata', $filter->getParam('execution'));
 
         $returnValue = $filter->setExecution('index');
-        $this->assertInstanceOf('Elastica\Filter\Range', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Range', $returnValue);
     }
 
     /**

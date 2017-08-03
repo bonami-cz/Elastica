@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\NumericRange;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -13,7 +13,7 @@ class NumericRangeTest extends BaseTest
     {
         $rangeFilter = new NumericRange();
         $returnValue = $rangeFilter->addField('fieldName', array('to' => 'value'));
-        $this->assertInstanceOf('Elastica\Filter\NumericRange', $returnValue);
+        $this->assertInstanceOf('Bonami\Elastica\Filter\NumericRange', $returnValue);
     }
 
     /**

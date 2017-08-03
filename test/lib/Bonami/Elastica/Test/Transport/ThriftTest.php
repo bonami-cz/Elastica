@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Transport;
+namespace Bonami\Elastica\Test\Transport;
 
 use Bonami\Elastica\Connection;
 use Bonami\Elastica\Document;
@@ -39,7 +39,7 @@ class ThriftTest extends BaseTest
         // Creates a new index 'xodoa' and a type 'user' inside this index
         $client = $this->_getClient($config);
 
-        $index = $client->getIndex('elastica_test1');
+        $index = $client->getIndex('Bonami\Elastica_test1');
         $index->create(array(), true);
 
         $type = $index->getType('user');
@@ -70,7 +70,7 @@ class ThriftTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\ConnectionException
+     * @expectedException \Bonami\Elastica\Exception\ConnectionException
      */
     public function testInvalidHostRequest()
     {
@@ -82,7 +82,7 @@ class ThriftTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\ResponseException
+     * @expectedException \Bonami\Elastica\Exception\ResponseException
      */
     public function testInvalidElasticRequest()
     {

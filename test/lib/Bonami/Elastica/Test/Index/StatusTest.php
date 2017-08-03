@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Index;
+namespace Bonami\Elastica\Test\Index;
 
 use Bonami\Elastica\Index\Status as IndexStatus;
 use Bonami\Elastica\Test\Base as BaseTest;

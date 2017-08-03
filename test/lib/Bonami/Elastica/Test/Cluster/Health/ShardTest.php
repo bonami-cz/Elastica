@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Cluster\Health;
+namespace Bonami\Elastica\Test\Cluster\Health;
 
 use Bonami\Elastica\Cluster\Health\Shard as HealthShard;
 use Bonami\Elastica\Test\Base as BaseTest;

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Param;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -13,7 +13,7 @@ class ParamTest extends BaseTest
     public function testToArrayEmpty()
     {
         $param = new Param();
-        $this->assertInstanceOf('Elastica\Param', $param);
+        $this->assertInstanceOf('Bonami\Elastica\Param', $param);
         $this->assertEquals(array($this->_getFilterName($param) => array()), $param->toArray());
     }
 
@@ -26,7 +26,7 @@ class ParamTest extends BaseTest
         $params = array('hello' => 'word', 'nicolas' => 'ruflin');
         $param->setParams($params);
 
-        $this->assertInstanceOf('Elastica\Param', $param);
+        $this->assertInstanceOf('Bonami\Elastica\Param', $param);
         $this->assertEquals(array($this->_getFilterName($param) => $params), $param->toArray());
     }
 
@@ -83,7 +83,7 @@ class ParamTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testGetParamInvalid()
     {

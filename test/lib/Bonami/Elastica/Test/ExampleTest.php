@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -32,7 +32,7 @@ class ExampleTest extends BaseTest
     {
         // Creates a new index 'xodoa' and a type 'user' inside this index
         $client = $this->_getClient();
-        $index = $client->getIndex('elastica_test');
+        $index = $client->getIndex('Bonami\Elastica_test');
         $index->create(array(), true);
 
         $type = $index->getType('user');

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Cluster;
+namespace Bonami\Elastica\Test\Cluster;
 
 use Bonami\Elastica\Test\Base as BaseTest;
 
@@ -34,7 +34,7 @@ class HealthTest extends BaseTest
         );
 
         $health = $this
-            ->getMockBuilder('Elastica\Cluster\Health')
+            ->getMockBuilder('Bonami\Elastica\Cluster\Health')
             ->setConstructorArgs(array($this->_getClient()))
             ->setMethods(array('_retrieveHealthData'))
             ->getMock();
@@ -141,7 +141,7 @@ class HealthTest extends BaseTest
         $this->assertEquals(2, count($indices));
 
         foreach ($indices as $index) {
-            $this->assertInstanceOf('Elastica\Cluster\Health\Index', $index);
+            $this->assertInstanceOf('Bonami\Elastica\Cluster\Health\Index', $index);
         }
     }
 }

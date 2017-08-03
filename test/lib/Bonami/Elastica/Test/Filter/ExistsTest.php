@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Filter;
+namespace Bonami\Elastica\Test\Filter;
 
 use Bonami\Elastica\Filter\Exists;
 use Bonami\Elastica\Test\Base as BaseTest;
@@ -29,7 +29,7 @@ class ExistsTest extends BaseTest
         $this->assertEquals($field, $filter->getParam('field'));
 
         $newField = 'hello world';
-        $this->assertInstanceOf('Elastica\Filter\Exists', $filter->setField($newField));
+        $this->assertInstanceOf('Bonami\Elastica\Filter\Exists', $filter->setField($newField));
 
         $this->assertEquals($newField, $filter->getParam('field'));
     }

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Client;
 use Bonami\Elastica\Connection;
@@ -75,7 +75,7 @@ class Base extends \PHPUnit_Framework_TestCase
         }
 
         $client = $this->_getClient();
-        $index = $client->getIndex('elastica_'.$name);
+        $index = $client->getIndex('Bonami\Elastica_'.$name);
         $index->create(array('index' => array('number_of_shards' => $shards, 'number_of_replicas' => 0)), $delete);
 
         return $index;

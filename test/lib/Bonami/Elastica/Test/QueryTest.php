@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Exception\InvalidException;
@@ -99,7 +99,7 @@ class QueryTest extends BaseTest
     {
         $query = new Query();
         $suggest = new Suggest();
-        $this->assertInstanceOf('Elastica\Query', $query->setSuggest($suggest));
+        $this->assertInstanceOf('Bonami\Elastica\Query', $query->setSuggest($suggest));
     }
 
     /**
@@ -365,7 +365,7 @@ class QueryTest extends BaseTest
     public function testAddAggregationToArrayCast()
     {
         $query = new Query();
-        $aggregation = new \Elastica\Aggregation\Terms('text');
+        $aggregation = new \Bonami\Elastica\Aggregation\Terms('text');
 
         $query->addAggregation($aggregation);
 
@@ -402,7 +402,7 @@ class QueryTest extends BaseTest
     public function testSetRescoreToArrayCast()
     {
         $query = new Query();
-        $rescore = new \Elastica\Rescore\Query();
+        $rescore = new \Bonami\Elastica\Rescore\Query();
         $rescore->setQueryWeight(1);
 
         $query->setRescore($rescore);
@@ -421,7 +421,7 @@ class QueryTest extends BaseTest
     public function testSetPostFilterToArrayCast()
     {
         $query = new Query();
-        $postFilter = new \Elastica\Filter\Terms();
+        $postFilter = new \Bonami\Elastica\Filter\Terms();
         $postFilter->setTerms('key', array('term'));
         $query->setPostFilter($postFilter);
 

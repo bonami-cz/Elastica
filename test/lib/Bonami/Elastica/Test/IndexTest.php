@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test;
+namespace Bonami\Elastica\Test;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Exception\ResponseException;
@@ -283,7 +283,7 @@ class IndexTest extends BaseTest
 
     /**
      * @group functional
-     * @expectedException \Elastica\Exception\ResponseException
+     * @expectedException \Bonami\Elastica\Exception\ResponseException
      */
     public function testAddRemoveAlias()
     {
@@ -636,7 +636,7 @@ class IndexTest extends BaseTest
             $response = $error->getResponse();
             $this->assertTrue($response->hasError());
             $request = $error->getRequest();
-            $this->assertInstanceOf('Elastica\Request', $request);
+            $this->assertInstanceOf('Bonami\Elastica\Request', $request);
         }
     }
 
@@ -674,7 +674,7 @@ class IndexTest extends BaseTest
         $index = $this->_createIndex();
         $indexMappings = $index->getMapping();
 
-        $this->assertTrue(empty($indexMappings['elastica_test']));
+        $this->assertTrue(empty($indexMappings['Bonami\Elastica_test']));
     }
 
     /**
@@ -716,7 +716,7 @@ class IndexTest extends BaseTest
     }
 
     /**
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      *
      * @group functional
      */
@@ -868,7 +868,7 @@ class IndexTest extends BaseTest
 
     /**
      * @group unit
-     * @expectedException \Elastica\Exception\InvalidException
+     * @expectedException \Bonami\Elastica\Exception\InvalidException
      */
     public function testThrowExceptionIfNotScalar()
     {

@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Multi;
+namespace Bonami\Elastica\Test\Multi;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Multi\Search as MultiSearch;
@@ -48,7 +48,7 @@ class SearchTest extends BaseTest
         $client = $this->_getClient();
         $multiSearch = new MultiSearch($client);
 
-        $this->assertInstanceOf('Elastica\Multi\Search', $multiSearch);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\Search', $multiSearch);
         $this->assertSame($client, $multiSearch->getClient());
     }
 
@@ -159,12 +159,12 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         foreach ($multiResultSet as $resultSet) {
-            $this->assertInstanceOf('Elastica\ResultSet', $resultSet);
+            $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
         }
 
         $resultSets = $multiResultSet->getResultSets();
@@ -172,13 +172,13 @@ class SearchTest extends BaseTest
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertCount(2, $resultSets[0]);
         $this->assertSame($query1, $resultSets[0]->getQuery());
         $this->assertEquals(3, $resultSets[0]->getTotalHits());
 
         $this->assertArrayHasKey(1, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[1]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[1]);
         $this->assertCount(3, $resultSets[1]);
         $this->assertSame($query2, $resultSets[1]->getQuery());
         $this->assertEquals(6, $resultSets[1]->getTotalHits());
@@ -190,22 +190,22 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         $resultSets = $multiResultSet->getResultSets();
 
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertCount(0, $resultSets[0]);
         $this->assertSame($query1, $resultSets[0]->getQuery());
         $this->assertEquals(3, $resultSets[0]->getTotalHits());
 
         $this->assertArrayHasKey(1, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[1]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[1]);
         $this->assertCount(0, $resultSets[1]);
         $this->assertSame($query2, $resultSets[1]->getQuery());
         $this->assertEquals(6, $resultSets[1]->getTotalHits());
@@ -254,29 +254,29 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         foreach ($multiResultSet as $resultSet) {
-            $this->assertInstanceOf('Elastica\ResultSet', $resultSet);
+            $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSet);
         }
 
-        $this->assertInstanceOf('Elastica\ResultSet', $multiResultSet['search1']);
-        $this->assertInstanceOf('Elastica\ResultSet', $multiResultSet['search2']);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $multiResultSet['search1']);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $multiResultSet['search2']);
 
         $resultSets = $multiResultSet->getResultSets();
 
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey('search1', $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets['search1']);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets['search1']);
         $this->assertCount(2, $resultSets['search1']);
         $this->assertSame($query1, $resultSets['search1']->getQuery());
         $this->assertEquals(3, $resultSets['search1']->getTotalHits());
 
         $this->assertArrayHasKey('search2', $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets['search2']);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets['search2']);
         $this->assertCount(3, $resultSets['search2']);
         $this->assertSame($query2, $resultSets['search2']->getQuery());
         $this->assertEquals(6, $resultSets['search2']->getTotalHits());
@@ -288,22 +288,22 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         $resultSets = $multiResultSet->getResultSets();
 
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey('search1', $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets['search1']);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets['search1']);
         $this->assertCount(0, $resultSets['search1']);
         $this->assertSame($query1, $resultSets['search1']->getQuery());
         $this->assertEquals(3, $resultSets['search1']->getTotalHits());
 
         $this->assertArrayHasKey('search2', $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets['search2']);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets['search2']);
         $this->assertCount(0, $resultSets['search2']);
         $this->assertSame($query2, $resultSets['search2']->getQuery());
         $this->assertEquals(6, $resultSets['search2']->getTotalHits());
@@ -337,18 +337,18 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $resultSets = $multiResultSet->getResultSets();
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertSame($searchGood->getQuery(), $resultSets[0]->getQuery());
         $this->assertSame(6, $resultSets[0]->getTotalHits());
         $this->assertCount(6, $resultSets[0]);
 
         $this->assertArrayHasKey(1, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[1]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[1]);
         $this->assertSame($searchBad->getQuery(), $resultSets[1]->getQuery());
         $this->assertSame(0, $resultSets[1]->getTotalHits());
         $this->assertCount(0, $resultSets[1]);
@@ -385,18 +385,18 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $resultSets = $multiResultSet->getResultSets();
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey('search1', $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets['search1']);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets['search1']);
         $this->assertSame($searchGood->getQuery(), $resultSets['search1']->getQuery());
         $this->assertSame(6, $resultSets['search1']->getTotalHits());
         $this->assertCount(6, $resultSets['search1']);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertSame($searchBad->getQuery(), $resultSets[0]->getQuery());
         $this->assertSame(0, $resultSets[0]->getTotalHits());
         $this->assertCount(0, $resultSets[0]);
@@ -444,22 +444,22 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         $resultSets = $multiResultSet->getResultSets();
 
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertCount(0, $resultSets[0]);
         $this->assertSame($query1, $resultSets[0]->getQuery());
         $this->assertEquals(3, $resultSets[0]->getTotalHits());
 
         $this->assertArrayHasKey(1, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[1]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[1]);
         $this->assertCount(0, $resultSets[1]);
         $this->assertSame($query2, $resultSets[1]->getQuery());
         $this->assertEquals(6, $resultSets[1]->getTotalHits());
@@ -468,22 +468,22 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         $resultSets = $multiResultSet->getResultSets();
 
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertCount(2, $resultSets[0]);
         $this->assertSame($query1, $resultSets[0]->getQuery());
         $this->assertEquals(3, $resultSets[0]->getTotalHits());
 
         $this->assertArrayHasKey(1, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[1]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[1]);
         $this->assertCount(0, $resultSets[1]);
         $this->assertSame($query2, $resultSets[1]->getQuery());
         $this->assertEquals(6, $resultSets[1]->getTotalHits());
@@ -528,22 +528,22 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         $resultSets = $multiResultSet->getResultSets();
 
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertCount(0, $resultSets[0]);
         $this->assertSame($query1, $resultSets[0]->getQuery());
         $this->assertEquals(3, $resultSets[0]->getTotalHits());
 
         $this->assertArrayHasKey(1, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[1]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[1]);
         $this->assertCount(0, $resultSets[1]);
         $this->assertSame($query2, $resultSets[1]->getQuery());
         $this->assertEquals(6, $resultSets[1]->getTotalHits());
@@ -552,22 +552,22 @@ class SearchTest extends BaseTest
 
         $multiResultSet = $multiSearch->search();
 
-        $this->assertInstanceOf('Elastica\Multi\ResultSet', $multiResultSet);
+        $this->assertInstanceOf('Bonami\Elastica\Multi\ResultSet', $multiResultSet);
         $this->assertCount(2, $multiResultSet);
-        $this->assertInstanceOf('Elastica\Response', $multiResultSet->getResponse());
+        $this->assertInstanceOf('Bonami\Elastica\Response', $multiResultSet->getResponse());
 
         $resultSets = $multiResultSet->getResultSets();
 
         $this->assertInternalType('array', $resultSets);
 
         $this->assertArrayHasKey(0, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[0]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[0]);
         $this->assertCount(2, $resultSets[0]);
         $this->assertSame($query1, $resultSets[0]->getQuery());
         $this->assertEquals(3, $resultSets[0]->getTotalHits());
 
         $this->assertArrayHasKey(1, $resultSets);
-        $this->assertInstanceOf('Elastica\ResultSet', $resultSets[1]);
+        $this->assertInstanceOf('Bonami\Elastica\ResultSet', $resultSets[1]);
         $this->assertCount(0, $resultSets[1]);
         $this->assertSame($query2, $resultSets[1]->getQuery());
         $this->assertEquals(6, $resultSets[1]->getTotalHits());

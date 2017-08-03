@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Filter\Term;
@@ -319,7 +319,7 @@ class FunctionScoreTest extends BaseTest
         $returnedValue = $query->setMinScore(0.8);
 
         $this->assertEquals($expected, $query->toArray());
-        $this->assertInstanceOf('Elastica\Query\FunctionScore', $returnedValue);
+        $this->assertInstanceOf('Bonami\Elastica\Query\FunctionScore', $returnedValue);
 
         $response = $this->_getIndexForTest()->search($query);
         $results = $response->getResults();

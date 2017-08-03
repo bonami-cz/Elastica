@@ -1,5 +1,5 @@
 <?php
-namespace Elastica\Test\Query;
+namespace Bonami\Elastica\Test\Query;
 
 use Bonami\Elastica\Document;
 use Bonami\Elastica\Index;
@@ -240,7 +240,7 @@ class FuzzyLikeThisTest extends BaseTest
 
         $type->addDocuments(array(
             new Document(1000, array('email' => 'testemail@gmail.com', 'content' => 'The Fuzzy Test!')),
-            new Document(1001, array('email' => 'testemail@gmail.com', 'content' => 'Elastica Fuzzy Test')),
+            new Document(1001, array('email' => 'testemail@gmail.com', 'content' => 'Bonami\Elastica Fuzzy Test')),
         ));
 
         // Refresh index
